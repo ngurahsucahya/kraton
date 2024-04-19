@@ -13,15 +13,15 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::create([
-        //     'username' => 'Sucahya01',
-        //     'name' => 'Ngurah Sucahya',
-        //     'email' => 'sucahya@kraton.com',
-        //     'kelas' => '1',
-        //     'tanggal_lahir' => '1990-05-15',
-        //     'password' => bcrypt('kraton01'),
-        //     'role' => 'Admin',
-        // ]);
+        User::create([
+            'username' => 'Sucahya01',
+            'name' => 'Ngurah Sucahya',
+            'email' => 'sucahya@kraton.com',
+            'kelas' => '1',
+            'tanggal_lahir' => '1990-05-15',
+            'password' => bcrypt('kraton01'),
+            'role' => 'Admin',
+        ]);
 
         User::create([
             'username' => 'Sucahya02',
