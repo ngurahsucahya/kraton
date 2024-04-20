@@ -11,7 +11,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Quiz System</title>
+        <title>Pengetahuan Umum</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -102,7 +102,7 @@
 
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
                 <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
-                    <h1>Quiz System</h1>
+                    <h1>Pengetahuan Umum</h1>
                 </div>
                 <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
                     @if ($errors->any())
@@ -132,7 +132,7 @@
                             @foreach($pertanyaan as $pertanyaan)
                                 <br>
                                 <span class="badge badge-danger" style="color: white; font-size: 140%;">pertanyaan {{ isset($_GET["page"]) ? $_GET["page"] : "1" }}</span>
-                                 <div class="badge badge-dark" id="countdown" style="color: white; font-size: 140%;">Starting the Counter</div><br><br>
+                                 <div class="badge badge-dark" id="countdown" style="color: white; font-size: 140%;">Durasi dihitung mundur</div><br><br>
                                 <div style="background-color: rgba(156,255,136,0.69);display: inline-block;
     padding: 0.25em 0.4em;
     font-size: 140%;
@@ -162,12 +162,12 @@
                                     @if(!isset($_GET["page"]))
                                         <nav role="navigation" aria-label="Pagination Navigation" class="flex justify-between">
                                             <a id="btn" href="?page=2" rel="next" class="btn btn-primary btn-lg btn-block">
-                                                Next pertanyaan &raquo;
+                                                Pertanyaan Berikutnya &raquo;
                                             </a>
                                         </nav>
                                     @elseif($_GET["page"] == request()->session()->get('pertanyaan'))
                                         <a id="btn" href="{{route('finish')}}" rel="next" class="btn btn-success btn-lg btn-block">
-                                            Submit All And Finish
+                                            Kirim Jawaban
                                         </a>
                                     @elseif($_GET["page"] >= 1 && $_GET["page"] < request()->session()->get('pertanyaan'))
                                     <nav role="navigation" aria-label="Pagination Navigation" class="flex justify-between">
@@ -183,31 +183,31 @@
                                 @endif
                             @else
                                 <span class="badge badge-dark" style="color: white; font-size: 140%;">
-                                Welcome to the Quiz System.
+                                Selamat datang di sesi Pengetahuan Umum.
                                 </span><br><br>
                                 <span class="badge badge-success" style="color: white; font-size: 140%;">
-                                You will be given {{request()->session()->get('pertanyaan')}} pertanyaan in total.
+                                Kamu akan diberikan total {{request()->session()->get('pertanyaan')}} pertanyaan.
                                 </span><br><br>
                                 <span class="badge badge-success" style="color: white; font-size: 140%;">
-                                You will have {{request()->session()->get('time')}} seconds to answer each pertanyaan.
+                                Kamu memiliki durasi {{request()->session()->get('time')}} detik untuk <br>menjawab setiap pertanyaan.
                                 </span><br><br>
                                 <span class="badge badge-dark" style="color: white; font-size: 140%;">
                                 Good luck.
                                 </span><br><br><br>
-                                <a href="?page=1" class="btn btn-primary btn-lg btn-block">Let's Start</a>
+                                <a href="?page=1" class="btn btn-primary btn-lg btn-block">AYO MULAI!</a>
                             @endif
                             @else
 
                             <form name="check-first" id="check-first" method="post" action="{{url('check-first')}}">
                                 <center>
                                     @csrf
-                                    <label for="time"><b>Answer Time For Per pertanyaan (15-120 secs.)</b></label>
+                                    <label for="time"><b> Tentukan durasi menjawab per soal (15-120 detik.)</b></label>
                                     <input type="text" class="form-control" name="time" value="{{ old('time') }}">
                                     <br>
                                     <label for="pertanyaan"><b>Total pertanyaan (1-10)</b></label>
                                     <input type="text" class="form-control" name="pertanyaan" value="{{ old('pertanyaan') }}">
                                     <br>
-                                    <button type="submit" class="btn btn-primary">Start a Quiz</button>
+                                    <button type="submit" class="btn btn-primary">Mulai</button>
                                 </center>
                             </form>
                             @endif
@@ -217,11 +217,11 @@
 
                 @if(request()->session()->has('time') && request()->session()->has('pertanyaan'))
                     <center><br>
-                    <span class="badge badge-info" style="color: white; font-size: 130%;">{{request()->session()->get('time')}} seconds for per pertanyaan</span>
+                    <span class="badge badge-info" style="color: white; font-size: 130%;">{{request()->session()->get('time')}} detik untuk setiap pertanyaan</span>
                     <span class="badge badge-info" style="color: white; font-size: 130%;">Total pertanyaan: {{request()->session()->get('pertanyaan')}}</span>
                     <br><br>
                 <button type="button" class="btn btn-danger btn-lg btn-block" onclick="myFunc()">
-                    Quit the Quiz
+                    Keluar
                 </button>
                     </center>
                 <script>
@@ -252,7 +252,7 @@
                 var downloadTimer = setInterval(function(){
                     if(sessionStorage.getItem({{$pertanyaan->id}} + "time") <= 0){
                         clearInterval(downloadTimer);
-                        document.getElementById("countdown").innerHTML = "Finished";
+                        document.getElementById("countdown").innerHTML = "Selesai";
                         sessionStorage.setItem({{$pertanyaan->id}} + "out", "out");
 
                         document.getElementById("pertanyaan" + {{$pertanyaan->id}} + "A").disabled=true;
@@ -262,7 +262,7 @@
                         sessionStorage.setItem({{$pertanyaan->id}}, "empty");
 
                     } else {
-                        document.getElementById("countdown").innerHTML = sessionStorage.getItem({{$pertanyaan->id}} + "time") + " seconds remaining";
+                        document.getElementById("countdown").innerHTML = sessionStorage.getItem({{$pertanyaan->id}} + "time") + " detik tersisa";
                     }
                     timeleft = sessionStorage.getItem({{$pertanyaan->id}} + "time") - 1;
                     sessionStorage.removeItem({{$pertanyaan->id}} + "time");
@@ -270,7 +270,7 @@
                     console.log(timeleft);
                 }, 1000);
             }else{
-                document.getElementById("countdown").innerHTML = " Your time is up!";
+                document.getElementById("countdown").innerHTML = "Waktu kamu habis!";
             }
 
 
