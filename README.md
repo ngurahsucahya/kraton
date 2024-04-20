@@ -10,16 +10,18 @@ Bootstrap 5
 
 | Nama                                      | NIM          |
 |-------------------------------------------|--------------|
-| [I Gusti Ngurah Sucahya Satria Adi Pratama](https://github.com/anggota-1)| G6401221031  |
+| [I Gusti Ngurah Sucahya Satria Adi Pratama](https://github.com/ngurahsucahya)| G6401221031  |
 | [Yuuka Salsabila Sisvi](https://github.com/anggota-2)                         | G6401221117   |
 | [MUHAMMAD RASYADDIN AUFAR](https://github.com/anggota-3)                            | G6401221115 |
 
 ## Instalasi
 
-1. Clone repositori ini: `git clone https://github.com/ngurahsucahya/kraton`
-2. Masuk ke direktori proyek: `cd kraton`
+1. Clone repositori ini: </br> 
+`git clone https://github.com/ngurahsucahya/kraton`
+2. Masuk ke direktori proyek: </br> 
+`cd kraton`
 3. Masukkan command berikut:
-    `composer update`</br>
+    </br>`composer update`</br>
     `cp .env.example .env` </br>
     `php artisan key:generate` </br>
     `php artisan db:seed --class=UserSeeder` (database user) </br>
