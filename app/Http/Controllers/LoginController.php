@@ -25,11 +25,11 @@ class LoginController extends Controller
     if (Auth::attempt($credentials)) {
         $request->session()->regenerate();
 
-        return redirect()->intended('/beranda');
+        return redirect()->intended('/pilihmapel');
     }
 
     return back()->withErrors([
-        'email' => 'The provided credentials do not match our records.',
+        'username' => 'Data tidak sesuai.',
     ])->onlyInput('email');
     // dd('Berhasil Login!');
    }
