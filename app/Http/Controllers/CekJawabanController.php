@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
 
@@ -13,10 +14,10 @@ class CekJawabanController extends Controller
                 ->limit(request()->session()->get("pertanyaan"))
                 ->simplePaginate(1);
 
-            foreach($pertanyaan as $pertanyaan){
-                if(request()->session()->has($pertanyaan->id)){
+            foreach($pertanyaan as $item){
+                if(request()->session()->has($item->id)){
                 }else{
-                    session([$pertanyaan->id => $pertanyaan->jawbaanBenar]);
+                    session([$item->id => $item->jawbaanBenar]);
                 }
 
             }
@@ -25,7 +26,7 @@ class CekJawabanController extends Controller
                 'pertanyaan' => $pertanyaan
             ]);
         }else{
-            return view('pilihmapel');
+            return view('welcome');
         }
     }
 
@@ -39,7 +40,7 @@ class CekJawabanController extends Controller
 
         session(['time' => $request->input('time'), 'pertanyaan' => $request->input('pertanyaan')]);
 
-        return redirect('/');
+        return redirect('/bringThem');
     }
 }
 

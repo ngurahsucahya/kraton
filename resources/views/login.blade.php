@@ -31,7 +31,7 @@
         <img src="{{ asset('images/logo.png') }}" alt="Kraton" width="100" height="100" class="mx-auto d-block">
 
           <!-- <h4 class="card-title">Domba Premium</h4> -->
-          <form action="/" method="post">
+          <form action="/login" method="post">
             @csrf
             <div class="mb-3">
               <label for="username" class="form-label">Username</label>
