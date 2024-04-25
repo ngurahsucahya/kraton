@@ -64,26 +64,24 @@
 </head>
 <body class="text-center">
   <div class="container">
-    <form class="form-signin">
-      <img src="https://img.freepik.com/free-photo/3d-representation-letter-k_23-2150891042.jpg?t=st=1713960942~exp=1713964542~hmac=43e3ad7a6b819c2a9704e690f42a42ba102fc26ff73f1cac28e6b70128b533a9&w=826" alt="Kraton" width="100" height="100" class="mb-4">
+    <form class="form-signin" action="/login" method="post">
+      <img src="{{ asset('images/logo.png') }}" alt="Kraton" width="100" height="100" class="mb-4">
       <h1 class="h3 mb-3 font-weight-normal form-signin-heading">Masuk Kraton</h1>
-      <form action="/login" method="post">
-        @csrf
         <label for="username" class="sr-only">Username</label>
-        <input type="email" id="inputEmail" class="form-control mb-2" placeholder="Username" required autofocus>
-        <label for="password" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control mb-2" placeholder="Password" required>
+        <input type="text" id="username" class="form-control mb-2" placeholder="Username" name="username" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control mb-2" placeholder="Password" name="password" required>
         <div class="checkbox mb-3">
           <label>
             <input type="checkbox" value="remember-me"> Ingat saya
           </label>
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Masuk</button>
-      </form>
       <a href="#" class="btn btn-lg btn-register btn-block mt-3">Daftar</a>
     </form>
   </div>
 </body>
 </html>
+
 
 
