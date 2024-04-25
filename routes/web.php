@@ -41,3 +41,4 @@ Route::get('/selesai', function() {
 
 Route::get('/pilih', function () {return view('testing');});
 Route::get('/coba', function () {return view('tes');});
+Route::get('/pilihan', function () {return view('pilihbidang');});
