@@ -11,7 +11,6 @@ class CekJawabanController extends Controller
 
         if(request()->session()->has('time') && request()->session()->has('pertanyaan')){
             $pertanyaan = DB::table('pertanyaan_umum')
-                ->inRandomOrder()
                 ->limit(request()->session()->get("pertanyaan"))
                 ->simplePaginate(1);
 
