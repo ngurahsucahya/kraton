@@ -40,3 +40,4 @@ Route::get('/selesai', function() {
 })->name('selesai');
 
 Route::get('/pilih', function () {return view('testing');});
+Route::get('/coba', function () {return view('tes');});
