@@ -4,14 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pilih Mata Pelajaran</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
+            font-family: "Comic Sans MS", cursive, sans-serif;
             display: flex;
             align-items: center;
             justify-content: center;
             height: 100vh;
             margin: 0;
+        }
+
+        /* Warna latar belakang kartu */
+        .card {
+            background-color: #f8f9fa;
+            border: 1px solid #eaeaea;
+            border-radius: 10px;
         }
 
         @media (max-width: 767px) {
@@ -32,7 +40,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Pengetahuan Umum</h5>
-                        <p class="card-text">Berisi soal-soal pengetahuan umum Indonesia dan Dunia</p>
+                        <p class="card-text">Berisi soal-soal pengetahuan Umum</p>
                         <a href="/pengetahuan-umum" class="btn btn-primary">Mulai</a>
                     </div>
                 </div>
@@ -54,7 +62,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">IPA</h5>
-                        <p class="card-text">Berisi soal-soal seputar alama</p>
+                        <p class="card-text">Berisi soal-soal seputar alam</p>
                         <a href="/ipa" class="btn btn-primary">Mulai</a>
                     </div>
                 </div>
@@ -62,7 +70,9 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
     
 </body>
 </html>
+
+
