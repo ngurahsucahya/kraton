@@ -38,3 +38,5 @@ Route::get('/selesai', function() {
         return redirect('/')->with('error', 'Tidak ada kuis yang sedang berlangsung.'); 
     }
 })->name('selesai');
+
+Route::get('/pilih', function () {return view('testing');});
