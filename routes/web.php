@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\CekJawabanController;
 use App\Http\Controllers\FinishController;
 
@@ -38,3 +39,10 @@ Route::get('/selesai', function() {
         return redirect('/')->with('error', 'Tidak ada kuis yang sedang berlangsung.'); 
     }
 })->name('selesai');
+
+
+// Rute untuk menampilkan formulir pendaftaran
+Route::get('/register', [RegisterController::class, 'index'])->name('register');
+
+// Rute untuk memproses pendaftaran
+Route::post('/register', [RegisterController::class, 'store']);
