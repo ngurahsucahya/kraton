@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Quiz System - Results</title>
+    <title>hasil Latihan</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -95,7 +95,7 @@
 
     <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
         <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
-            <h1>Quiz System - Results</h1>
+            <h1>Hasil Latihan</h1>
         </div>
         <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
 
@@ -107,9 +107,9 @@
                         <thead class="thead-dark">
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Your Answer</th>
-                            <th scope="col">Correct Answer</th>
-                            <th scope="col">Result</th>
+                            <th scope="col">Jawaban Kamu</th>
+                            <th scope="col">Jawaban Benar</th>
+                            <th scope="col">Hasil</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -117,7 +117,7 @@
                             <tr>
                                 <th scope="row"><span class="badge badge-danger" style="color: white; font-size: 150%;">{{$i}}</span></th>
                                 <td>
-                                    <div id="yourAnswer{{$i}}" class="badge badge-success" style="color: white; font-size: 150%;">Loading...</div>
+                                    <div id="yourAnswer{{$i}}" class="badge badge-success" style="color: white; font-size: 150%;">Memuat...</div>
                                 </td>
                                 <td>
                                     @if(request()->session()->get($i) == "empty")
@@ -145,7 +145,7 @@
         </div>
         <br><br>
         <button type="button" class="btn btn-danger btn-lg btn-block" onclick="myFunc()">
-            Quit the Quiz
+            Keluar
         </button>
     </div>
 </div>
@@ -166,9 +166,9 @@
         var downloadTimer = setInterval(function(){
             if(timeleft <= 0){
                 clearInterval(downloadTimer);
-                document.getElementById("final").innerHTML = "Thank you for completing the quiz.";
-                document.getElementById("trueMatches").innerHTML = trueMatches + " Correct";
-                document.getElementById("falseMatches").innerHTML = falseMatches + " False";
+                document.getElementById("final").innerHTML = "Ayo latihan lagi!";
+                document.getElementById("trueMatches").innerHTML = trueMatches + " Benar";
+                document.getElementById("falseMatches").innerHTML = falseMatches + " Salah";
             } else {
                 let temp = document.getElementById('correct' + i).innerHTML;
                 if(answers[i] == "A" || answers[i] == "B" || answers[i] == "C" || answers[i] == "D" ){
@@ -179,11 +179,11 @@
                 }
                 if(temp == answers[i]){
                 document.getElementById("yourResult" + i).className = "badge badge-success";
-                document.getElementById("yourResult" + i).innerHTML = "true";
+                document.getElementById("yourResult" + i).innerHTML = "Benar";
                 trueMatches++;
                 }else{
                 document.getElementById("yourResult" + i).className = "badge badge-danger";
-                document.getElementById("yourResult" + i).innerHTML = "false";
+                document.getElementById("yourResult" + i).innerHTML = "Salah";
                 falseMatches++;
                 }
                 i++;
