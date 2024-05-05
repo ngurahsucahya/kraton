@@ -9,7 +9,7 @@
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="{{ asset('template/img/favicon.ico')}}" rel="icon">
+    <link href="{{asset('template/img/favicon.ico')}}" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -45,8 +45,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="/" class="nav-item nav-link active">Beranda</a>
-                <a href="/kuistrial" class="nav-item nav-link">Coba Kuis</a>
+                <a href="index.html" class="nav-item nav-link active">Beranda</a>
+                <a href="about.html" class="nav-item nav-link">Coba Kuis</a>
                 <!-- <a href="service.html" class="nav-item nav-link">Fitur</a> -->
                 <!-- <a href="project.html" class="nav-item nav-link">Project</a> -->
                 <div class="nav-item dropdown">
@@ -61,48 +61,45 @@
                 </div>
                 <a href="contact.html" class="nav-item nav-link">Tim Pengembang</a>
             </div>
-            <a href="/register" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">DAFTAR<i class="fa fa-arrow-right ms-3"></i></a>
+            <form action="/logout" method="post">
+            @csrf
+                <button type="submit" id="logout" class="btn btn-danger rounded-0 py-4 px-lg-5 d-none d-lg-block">LOGOUT<i class="fa fa-arrow-right ms-3"></i></button>                    
+            </form>
         </div>
     </nav>
     <!-- Navbar End -->
 
-
-<!-- Quote Start -->
-    <div class="container-fluid bg-light overflow-hidden my-0 px-lg-0">
-        <div class="container quote px-lg-0">
-            <div class="row g-0 mx-lg-0">
-                <div class="col-lg-6 ps-lg-0 wow fadeIn" data-wow-delay="0.1s" style="min-height: 100px;">
-                    <div class="position-relative h-100">
-                        <img class="position-absolute img-fluid w-100 h-100" src="{{ asset('template/img/20220805_123216.jpg')}}" style="object-fit: cover;" alt="">
-                    </div>
+    <!-- Service Start -->
+<div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                <h6 class="text-primary">Selamat Datang!</h6>
+                <h1 class="mb-4">Halaman Admin</h1>
+            </div>
+        </div>
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Jumlah Pengguna</h5>
+                    <h1 class="mb-0" data-toggle="counter-up">{{ $userCount }}</h1>
+                    <a href="/semua-users" class="btn btn-primary">Lihat</a>
                 </div>
-                <div class="col-lg-6 quote-text py-5 wow fadeIn" data-wow-delay="0.5s">
-                    <div class="p-lg-5 pe-lg-0">
-                        <h6 class="text-primary"></h6>
-                        <h1 class="mb-4">MASUK</h1>
-                        <p class="mb-4 pb-2">Halo, selamat datang di Kreasi Education</p>
-                        <form method="POST" action="{{ route('login') }}">
-                            @csrf
-                            <div class="row g-3">
-                                <div class="col-12">              
-                                    <label for="username" class="form-label">Username</label>
-                                    <input type="text" class="form-control border-0" placeholder="" id="username" name="username" style="height: 55px;" required>
-                                </div>
-                                <div class="col-12">
-                                    <label for="password" class="form-label">Password</label>
-                                    <input type="password" class="form-control border-0" placeholder="" id="password" name="password" style="height: 55px;" required>
-                                </div>
-                                <div class="col-12">
-                                    <button class="btn btn-primary rounded-pill py-3 px-5" type="submit">Submit</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Jumlah Pertanyaan</h5>
+                    <h1 class="mb-0" data-toggle="counter-up">{{ $questionCount }}</h1>
+                    <a href="#" class="btn btn-primary">Lihat</a>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Quote End -->
+</div>
+   
+    <!-- Service End -->
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

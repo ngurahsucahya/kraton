@@ -7,9 +7,10 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Favicon -->
-    <link href="{{ asset('template/img/favicon.ico')}}" rel="icon">
+    <link href="{{asset('template/img/favicon.ico')}}" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,8 +35,7 @@
 </head>
 
 <body>
-
- <!-- Navbar Start -->
+<!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0">
         <a href="index.html" class="navbar-brand d-flex align-items-center border-end px-4 px-lg-5">
             <h2 class="m-0 text-primary">Kraton</h2>
@@ -45,8 +45,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="/" class="nav-item nav-link active">Beranda</a>
-                <a href="/kuistrial" class="nav-item nav-link">Coba Kuis</a>
+                <a href="index.html" class="nav-item nav-link active">Beranda</a>
+                <a href="about.html" class="nav-item nav-link">Coba Kuis</a>
                 <!-- <a href="service.html" class="nav-item nav-link">Fitur</a> -->
                 <!-- <a href="project.html" class="nav-item nav-link">Project</a> -->
                 <div class="nav-item dropdown">
@@ -61,48 +61,50 @@
                 </div>
                 <a href="contact.html" class="nav-item nav-link">Tim Pengembang</a>
             </div>
-            <a href="/register" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">DAFTAR<i class="fa fa-arrow-right ms-3"></i></a>
+            <form action="/logout" method="post">
+            @csrf
+                <button type="submit" id="logout" class="btn btn-danger rounded-0 py-4 px-lg-5 d-none d-lg-block">LOGOUT<i class="fa fa-arrow-right ms-3"></i></button>                    
+            </form>
         </div>
     </nav>
     <!-- Navbar End -->
 
 
-<!-- Quote Start -->
-    <div class="container-fluid bg-light overflow-hidden my-0 px-lg-0">
-        <div class="container quote px-lg-0">
-            <div class="row g-0 mx-lg-0">
-                <div class="col-lg-6 ps-lg-0 wow fadeIn" data-wow-delay="0.1s" style="min-height: 100px;">
-                    <div class="position-relative h-100">
-                        <img class="position-absolute img-fluid w-100 h-100" src="{{ asset('template/img/20220805_123216.jpg')}}" style="object-fit: cover;" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-6 quote-text py-5 wow fadeIn" data-wow-delay="0.5s">
-                    <div class="p-lg-5 pe-lg-0">
-                        <h6 class="text-primary"></h6>
-                        <h1 class="mb-4">MASUK</h1>
-                        <p class="mb-4 pb-2">Halo, selamat datang di Kreasi Education</p>
-                        <form method="POST" action="{{ route('login') }}">
-                            @csrf
-                            <div class="row g-3">
-                                <div class="col-12">              
-                                    <label for="username" class="form-label">Username</label>
-                                    <input type="text" class="form-control border-0" placeholder="" id="username" name="username" style="height: 55px;" required>
-                                </div>
-                                <div class="col-12">
-                                    <label for="password" class="form-label">Password</label>
-                                    <input type="password" class="form-control border-0" placeholder="" id="password" name="password" style="height: 55px;" required>
-                                </div>
-                                <div class="col-12">
-                                    <button class="btn btn-primary rounded-pill py-3 px-5" type="submit">Submit</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+    <div class="container custom-card">
+            <div class="custom-card-body">
+                @if(count($users) > 0)
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th class="text-center align-middle">Username</th>
+                                <th class="text-center align-middle">Nama</th>
+                                <th class="text-center align-middle">Kelas</th>
+                                <th class="text-center align-middle">Role</th>
+                                <th class="text-center align-middle">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($users as $user)
+                                <tr>
+                                    <td class="text-center align-middle">{{ $user->username }}</td>
+                                    <td class="text-center align-middle">{{ $user->name }}</td>
+                                    <td class="text-center align-middle">{{ $user->kelas ?? '-' }}</td>
+                                    <td class="text-center align-middle">{{ $user->role }}</td>
+                                    <td class="text-center align-middle">
+                                        <button class="btn btn-danger" onclick="deleteUser({{ $user->id }})">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                @else
+                    <p class="mt-3">Data pengguna tidak ditemukan.</p>
+                @endif
             </div>
         </div>
     </div>
-    <!-- Quote End -->
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -117,6 +119,34 @@
 
     <!-- Template Javascript -->
     <script src="{{ asset('template/js/main.js')}}"></script>
+
+    <script>
+        function deleteUser(userId) {
+            if (confirm("Apakah Anda yakin ingin menghapus pengguna ini?")) {
+                var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+                fetch(`/delete-user/${userId}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'X-CSRF-TOKEN': csrfToken,
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ id: userId }),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Refresh halaman atau lakukan tindakan lain jika penghapusan berhasil
+                        location.reload(); // Contoh: Memuat ulang halaman
+                    } else {
+                        // Tampilkan pesan kesalahan jika diperlukan
+                        alert(data.message);
+                    }
+                });
+            }
+        }
+    </script>
+
 </body>
 
 <!-- Footer Start -->

@@ -6,6 +6,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\CekJawabanController;
 use App\Http\Controllers\FinishController;
 use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\AdminController;
 
 
 //uji coba
@@ -22,8 +23,8 @@ Route::get('/home', function () {
 
     $role = Auth::check() ? Auth::user()->role : null;
     if ($role === 'Admin') {
-       return view('berandaAdmin');
-        // return redirect()->route('berandaAdmin');
+    //    return view('admin.berandaAdmin');
+        return redirect()->route('admin.dashboard');
     } elseif ($role === 'Siswa') {
          return view('pilihmapel');
     } else {
@@ -42,6 +43,8 @@ Route::get('/matematika', function () {return view('matematika');})->middleware(
 Route::get('/ipa', function () {return view('ipa');})->middleware('auth');
 
 Route::get('/ranking', function () {return view('rangking');})->middleware('auth');
+
+Route::get('/kuistrial', [CekJawabanController::class, 'kuisTrial'])->middleware('guest');
 
 Route::get('/pengetahuan-umum', [CekJawabanController::class, 'pengetahuanUmum'])->middleware('auth');
 Route::post('check-first', [CekJawabanController::class, 'store']);
@@ -62,4 +65,32 @@ Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('/index', function () {return view('index');});
 Route::get('/profile', [ProfilController::class, 'show'])->middleware('auth')->name('profile.show');
+
+Route::get('/admin-dashboard', [AdminController::class, 'showDashboard'])->name('admin.dashboard')->middleware('auth');
+Route::get('/admin', function () {
+    $role = Auth::check() ? Auth::user()->role : null;
+    if ($role === 'Admin') {
+        return redirect()->route('admin.dashboard');
+    } elseif ($role === 'Siswa') {
+         return view('404');
+    } else {
+        return redirect()->route('login');
+    }
+})->middleware('auth');
+
+Route::get('/lihat-semua-users', [AdminController::class, 'lihatSemuaUsers'])->name('admin.user.list')->middleware('auth');
+Route::get('/semua-users', function () {
+    $role = Auth::check() ? Auth::user()->role : null;
+    if ($role === 'Admin') {
+        return redirect()->route('admin.user.list');
+    } elseif ($role === 'Siswa') {
+         return view('404');
+    } else {
+        return redirect()->route('login');
+    }
+})->middleware('auth');
+
+Route::delete('/delete-user/{id}', [AdminController::class, 'delete']);
+
+
 

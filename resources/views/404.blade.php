@@ -9,7 +9,7 @@
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="{{ asset('template/img/favicon.ico')}}" rel="icon">
+    <link href="{{asset('template/img/favicon.ico')}}" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -61,65 +61,28 @@
                 </div>
                 <a href="contact.html" class="nav-item nav-link">Tim Pengembang</a>
             </div>
-            <a href="/register" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">DAFTAR<i class="fa fa-arrow-right ms-3"></i></a>
+            <a href="/login" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">MASUK/DAFTAR<i class="fa fa-arrow-right ms-3"></i></a>
         </div>
     </nav>
     <!-- Navbar End -->
-
-
-<!-- Quote Start -->
-    <div class="container-fluid bg-light overflow-hidden my-0 px-lg-0">
-        <div class="container quote px-lg-0">
-            <div class="row g-0 mx-lg-0">
-                <div class="col-lg-6 ps-lg-0 wow fadeIn" data-wow-delay="0.1s" style="min-height: 100px;">
-                    <div class="position-relative h-100">
-                        <img class="position-absolute img-fluid w-100 h-100" src="{{ asset('template/img/20220805_123216.jpg')}}" style="object-fit: cover;" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-6 quote-text py-5 wow fadeIn" data-wow-delay="0.5s">
-                    <div class="p-lg-5 pe-lg-0">
-                        <h6 class="text-primary"></h6>
-                        <h1 class="mb-4">MASUK</h1>
-                        <p class="mb-4 pb-2">Halo, selamat datang di Kreasi Education</p>
-                        <form method="POST" action="{{ route('login') }}">
-                            @csrf
-                            <div class="row g-3">
-                                <div class="col-12">              
-                                    <label for="username" class="form-label">Username</label>
-                                    <input type="text" class="form-control border-0" placeholder="" id="username" name="username" style="height: 55px;" required>
-                                </div>
-                                <div class="col-12">
-                                    <label for="password" class="form-label">Password</label>
-                                    <input type="password" class="form-control border-0" placeholder="" id="password" name="password" style="height: 55px;" required>
-                                </div>
-                                <div class="col-12">
-                                    <button class="btn btn-primary rounded-pill py-3 px-5" type="submit">Submit</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+    
+    <!-- 404 Start -->
+    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container text-center">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <i class="bi bi-exclamation-triangle display-1 text-primary"></i>
+                    <h1 class="display-1">404</h1>
+                    <h1 class="mb-4">Halaman tidak ditemukan.</h1>
+                    <p class="mb-4">Mohon maaf halaman yang anda cari tidak ada.</p>
+                    <a class="btn btn-primary rounded-pill py-3 px-5" href="">Kembali</a>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Quote End -->
+    <!-- 404 End -->
 
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="{{ asset('template/lib/wow/wow.min.js')}}"></script>
-    <script src="{{ asset('template/lib/easing/easing.min.js')}}"></script>
-    <script src="{{ asset('template/lib/waypoints/waypoints.min.js')}}"></script>
-    <script src="{{ asset('template/lib/counterup/counterup.min.js')}}"></script>
-    <script src="{{ asset('template/lib/owlcarousel/owl.carousel.min.js')}}"></script>
-    <script src="{{ asset('template/lib/isotope/isotope.pkgd.min.js')}}"></script>
-    <script src="{{ asset('template/lib/lightbox/js/lightbox.min.js')}}"></script>
-
-    <!-- Template Javascript -->
-    <script src="{{ asset('template/js/main.js')}}"></script>
-</body>
-
-<!-- Footer Start -->
+    <!-- Footer Start -->
     <div class="container-fluid bg-dark text-body footer mt-0 pt-0 wow fadeIn" data-wow-delay="0.1s">    
     <div class="container">
             <div class="copyright">
@@ -136,5 +99,22 @@
         </div>
     </div>
     <!-- Footer End -->
+
+      <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('template/lib/wow/wow.min.js')}}"></script>
+    <script src="{{ asset('template/lib/easing/easing.min.js')}}"></script>
+    <script src="{{ asset('template/lib/waypoints/waypoints.min.js')}}"></script>
+    <script src="{{ asset('template/lib/counterup/counterup.min.js')}}"></script>
+    <script src="{{ asset('template/lib/owlcarousel/owl.carousel.min.js')}}"></script>
+    <script src="{{ asset('template/lib/isotope/isotope.pkgd.min.js')}}"></script>
+    <script src="{{ asset('template/lib/lightbox/js/lightbox.min.js')}}"></script>
+
+    <!-- Template Javascript -->
+    <script src="{{ asset('template/js/main.js')}}"></script>
+</body>
+    
+    
 
 </html>

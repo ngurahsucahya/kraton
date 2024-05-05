@@ -48,4 +48,13 @@ class PertanyaanUmum extends Model
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
     ];
+    /**
+     * Menghitung jumlah pertanyaan.
+     *
+     * @return int
+     */
+    public static function countPertanyaan()
+    {
+        return static::count();
+    }
 }
