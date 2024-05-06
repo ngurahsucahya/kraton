@@ -65,7 +65,6 @@
 <body class="text-center">
   <div class="container">
     <form class="form-signin" action="/login" method="post">
-      <img src="{{ asset('images/logo.png') }}" alt="Kraton" width="100" height="100" class="mb-4">
       <h1 class="h3 mb-3 font-weight-normal form-signin-heading">Masuk Kraton</h1>
         <label for="username" class="sr-only">Username</label>
         <input type="text" id="username" class="form-control mb-2" placeholder="Username" name="username" required autofocus>
