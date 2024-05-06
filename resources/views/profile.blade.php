@@ -81,7 +81,6 @@
         <div class="profile-info">
             <label>Skor Tertinggi:</label>
             <p>95</p>
-        </div>
         <!-- Info profil lainnya sesuai kebutuhan -->
         <button class="btn-back">Back</button>
     </div>

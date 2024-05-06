@@ -45,3 +45,4 @@ Route::get('/pilihan', function () {return view('pilihbidang');});
 Route::get('/profile', function () {return view('profile');});
 Route::get('/selesai', function () {return view('selesai');});
 Route::get('/paketsoal', function () {return view('paketsoal');});
+Route::get('/riwayat', function () {return view('riwayat');});
