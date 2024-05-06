@@ -11,7 +11,6 @@ class CekJawabanController extends Controller
 
         if(request()->session()->has('time') && request()->session()->has('pertanyaan')){
             $pertanyaan = DB::table('pertanyaan_umum')
-                ->inRandomOrder()
                 ->limit(request()->session()->get("pertanyaan"))
                 ->simplePaginate(1);
 
@@ -28,6 +27,29 @@ class CekJawabanController extends Controller
             ]);
         }else{
             return view('pengetahuanUmum');
+        }
+    }
+
+    public function kuisTrial(){
+
+        if(request()->session()->has('time') && request()->session()->has('pertanyaan')){
+            $pertanyaan = DB::table('pertanyaan_umum')
+                ->limit(request()->session()->get("pertanyaan"))
+                ->simplePaginate(1);
+
+            foreach($pertanyaan as $item){
+                if(request()->session()->has($item->id)){
+                }else{
+                    session([$item->id => $item->jawabanBenar]);
+                }
+
+            }
+
+            return view('kuisTrial', [
+                'pertanyaan' => $pertanyaan
+            ]);
+        }else{
+            return view('kuisTrial');
         }
     }
 

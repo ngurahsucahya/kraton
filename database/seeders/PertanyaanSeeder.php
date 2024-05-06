@@ -13,13 +13,13 @@ class PertanyaanSeeder extends Seeder
     {
         PertanyaanUmum::create([
             'pertanyaan' => 'Ikan yang bernafas dengan paru-paru adalah ...',
-            'A' => 'Hiu',
-            'B' => 'Paus',
-            'C' => 'Lumba-lumba',
+            'A' => 'Lumba-lumba',
+            'B' => 'Gerang',
+            'C' => 'Hiu',
             'D' => 'Tuna',
-            'jawabanBenar' => 'C',
+            'jawabanBenar' => 'A',
             'nilai'=> '10',
-            'penjelasan' => 'Paus adalah hewan mamalia yang bernafas dengan paru-paru.',
+            'penjelasan' => 'Lumba-lumba adalah hewan mamalia yang bernafas dengan paru-paru.',
             'created_at' => date("Y-m-d H:i:s"),
         ]);
 
@@ -47,15 +47,39 @@ class PertanyaanSeeder extends Seeder
             'created_at' => date("Y-m-d H:i:s"),
         ]);
 
-        PertanyaanIPA::create([
-            'pertanyaan' => 'Ikan yang bernafas dengan paru-paru adalah ...',
-            'A' => 'Hiu',
-            'B' => 'Paus',
-            'C' => 'Lumba-lumba',
-            'D' => 'Tuna',
+        PertanyaanUmum::create([
+            'pertanyaan' => 'Tokoh yang mengetik naskah proklamasi adalah ...',
+            'A' => 'Sayuti Melik',
+            'B' => 'Ir. Soekarno',
+            'C' => 'Moh. Hatta',
+            'D' => 'I Gusti Ngurah Rai',
+            'jawabanBenar' => 'A',
+            'nilai'=> '10',
+            'penjelasan' => 'Belum dibuat',
+            'created_at' => date("Y-m-d H:i:s"),
+        ]);
+
+        PertanyaanUmum::create([
+            'pertanyaan' => 'Negara yang pertama kali mengakui kemerdekaan indonesia adalah ...',
+            'A' => 'Jepang',
+            'B' => 'Jerman',
+            'C' => 'Mesir',
+            'D' => 'Belanda',
             'jawabanBenar' => 'C',
             'nilai'=> '10',
-            'penjelasan' => 'Paus adalah hewan mamalia yang bernafas dengan paru-paru.',
+            'penjelasan' => 'Pengakuan Mesir itu terjadi pada 22 Maret 1946. Sejak pengakuan kemerdekaan tersebut, Indonesia dan Mesir terus menjalin hubungan diplomatik sampai saat ini.',
+            'created_at' => date("Y-m-d H:i:s"),
+        ]);
+
+        PertanyaanIPA::create([
+            'pertanyaan' => 'Negara yang pertama kali mengakui kemerdekaan indonesia adalah ...',
+            'A' => 'Jepang',
+            'B' => 'Jerman',
+            'C' => 'Mesir',
+            'D' => 'Belanda',
+            'jawabanBenar' => 'C',
+            'nilai'=> '10',
+            'penjelasan' => 'Pengakuan Mesir itu terjadi pada 22 Maret 1946. Sejak pengakuan kemerdekaan tersebut, Indonesia dan Mesir terus menjalin hubungan diplomatik sampai saat ini.',
             'created_at' => date("Y-m-d H:i:s"),
         ]);
         

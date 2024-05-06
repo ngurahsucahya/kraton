@@ -26,7 +26,14 @@ Bootstrap 5
     `php artisan key:generate` </br>
     `php artisan db:seed --class=UserSeeder` (database user) </br>
     `php artisan db:seed --class=PertanyaanSeeder`(database pertanyaan) </br>
-4. Menjalankan server: `php artisan serve`
+4. Menjalankan server:</br> `php artisan serve`
+
+## Penggunaan Github
+`git checkout namaBranch` </br>
+`git branch` (pastiin nama branchnya sesuai)</br>
+`git add .`</br>
+`git commit -m "pesan commit bebas"`</br>
+`git push -u origin namaBranch`</br>
 
 ## Penggunaan
 

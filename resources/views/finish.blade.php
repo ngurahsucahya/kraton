@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Pengetahuan Umum - Hasil</title>
+    <title>hasil Latihan</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -95,7 +95,7 @@
 
     <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
         <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
-            <h1>Pengetahuan Umum - Hasil</h1>
+            <h1>Hasil Latihan</h1>
         </div>
         <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
 
@@ -107,7 +107,7 @@
                         <thead class="thead-dark">
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Jawaban</th>
+                            <th scope="col">Jawaban Kamu</th>
                             <th scope="col">Jawaban Benar</th>
                             <th scope="col">Hasil</th>
                         </tr>
@@ -120,13 +120,13 @@
                                     <div id="yourAnswer{{$i}}" class="badge badge-success" style="color: white; font-size: 150%;">Memuat...</div>
                                 </td>
                                 <td>
-                                    @if(request()->session()->get($i) == "Tidak menjawab")
-                                        <span id="correct{{$i}}" class="badge badge-warning" style="color: white; font-size: 150%;">Tidak menjawab!</span>
+                                    @if(request()->session()->get($i) == "empty")
+                                        <span id="correct{{$i}}" class="badge badge-warning" style="color: white; font-size: 150%;">Empty</span>
                                     @else
                                         <span id="correct{{$i}}" class="badge badge-success" style="color: white; font-size: 150%;">{{request()->session()->get($i)}}</span>
                                     @endif
                                 </td>
-                                <td><div id="yourResult{{$i}}" style="color: white; font-size: 150%;"><font color="black">Memuat...</font></div></td>
+                                <td><div id="yourResult{{$i}}" style="color: white; font-size: 150%;"><font color="black">Loading...</font></div></td>
                             </tr>
 
                         @endfor
@@ -145,7 +145,7 @@
         </div>
         <br><br>
         <button type="button" class="btn btn-danger btn-lg btn-block" onclick="myFunc()">
-            Coba lagi!
+            Keluar
         </button>
     </div>
 </div>
@@ -166,7 +166,7 @@
         var downloadTimer = setInterval(function(){
             if(timeleft <= 0){
                 clearInterval(downloadTimer);
-                document.getElementById("final").innerHTML = "Tetap semangat belajarnya yaa...!";
+                document.getElementById("final").innerHTML = "Ayo latihan lagi!";
                 document.getElementById("trueMatches").innerHTML = trueMatches + " Benar";
                 document.getElementById("falseMatches").innerHTML = falseMatches + " Salah";
             } else {
@@ -175,7 +175,7 @@
                     document.getElementById("yourAnswer" + i).innerHTML = answers[i];
                 }else{
 
-                    document.getElementById("yourAnswer" + i).innerHTML = "Tidak menjawab!";
+                    document.getElementById("yourAnswer" + i).innerHTML = "Empty";
                 }
                 if(temp == answers[i]){
                 document.getElementById("yourResult" + i).className = "badge badge-success";
