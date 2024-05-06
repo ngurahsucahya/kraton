@@ -2,8 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\CekJawabanController;
 use App\Http\Controllers\FinishController;
+use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\AdminController;
+
 
 //uji coba
 // Route::get('/cahya', function () {return view('home');})->middleware('auth');
@@ -11,19 +15,36 @@ use App\Http\Controllers\FinishController;
 // Route::get('/login', function () {return view('login');});  
 // Route::get('/pengetahuan-umum', function () {return view('pengetahuanUmum');})->middleware('auth'); 
 
-Route::get('/', function () {return view('pilihmapel');});
+Route::get('/', function () {return view('beranda');})->middleware('guest');
+
+// Route::get('/home', function () {return view('pilihmapel');})->middleware('auth');
+
+Route::get('/home', function () {
+
+    $role = Auth::check() ? Auth::user()->role : null;
+    if ($role === 'Admin') {
+    //    return view('admin.berandaAdmin');
+        return redirect()->route('admin.dashboard');
+    } elseif ($role === 'Siswa') {
+         return view('pilihmapel');
+    } else {
+        return redirect()->route('login');
+    }
+})->middleware('auth');
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']); 
 Route::post('/logout', [LoginController::class, 'logout']);  
 
 Route::get('/beranda', function () {return view('beranda');})->middleware('auth');
-Route::get('/pilihmapel', function () {return view('pilihmapel');});
+// Route::get('/pilihmapel', function () {return view('pilihmapel');});
 
 Route::get('/matematika', function () {return view('matematika');})->middleware('auth');
 Route::get('/ipa', function () {return view('ipa');})->middleware('auth');
 
 Route::get('/ranking', function () {return view('rangking');})->middleware('auth');
+
+Route::get('/kuistrial', [CekJawabanController::class, 'kuisTrial'])->middleware('guest');
 
 Route::get('/pengetahuan-umum', [CekJawabanController::class, 'pengetahuanUmum'])->middleware('auth');
 Route::post('check-first', [CekJawabanController::class, 'store']);
@@ -38,3 +59,38 @@ Route::get('/selesai', function() {
         return redirect('/')->with('error', 'Tidak ada kuis yang sedang berlangsung.'); 
     }
 })->name('selesai');
+
+Route::get('/register', [RegisterController::class, 'index'])->name('register');
+Route::post('/register', [RegisterController::class, 'store']);
+
+Route::get('/index', function () {return view('index');});
+Route::get('/profile', [ProfilController::class, 'show'])->middleware('auth')->name('profile.show');
+
+Route::get('/admin-dashboard', [AdminController::class, 'showDashboard'])->name('admin.dashboard')->middleware('auth');
+Route::get('/admin', function () {
+    $role = Auth::check() ? Auth::user()->role : null;
+    if ($role === 'Admin') {
+        return redirect()->route('admin.dashboard');
+    } elseif ($role === 'Siswa') {
+         return view('404');
+    } else {
+        return redirect()->route('login');
+    }
+})->middleware('auth');
+
+Route::get('/lihat-semua-users', [AdminController::class, 'lihatSemuaUsers'])->name('admin.user.list')->middleware('auth');
+Route::get('/semua-users', function () {
+    $role = Auth::check() ? Auth::user()->role : null;
+    if ($role === 'Admin') {
+        return redirect()->route('admin.user.list');
+    } elseif ($role === 'Siswa') {
+         return view('404');
+    } else {
+        return redirect()->route('login');
+    }
+})->middleware('auth');
+
+Route::delete('/delete-user/{id}', [AdminController::class, 'delete']);
+
+
+
