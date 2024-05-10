@@ -103,8 +103,11 @@ Route::get('/semua-pertanyaanUmum', function () {
     }
 })->middleware('auth');
 
-Route::delete('/delete-user/{id}', [AdminController::class, 'delete']);
+Route::delete('/delete-user/{id}', [AdminController::class, 'delete'])->middleware('auth');
 
-Route::delete('/delete-pertanyaan-umum/{id}', [AdminController::class, 'deletePertanyaanUmum']);
+Route::delete('/delete-pertanyaan-umum/{id}', [AdminController::class, 'deletePertanyaanUmum'])->middleware('auth');
 
+Route::post('/tambah-pertanyaanUmum', [AdminController::class, 'tambahPertanyaanUmum'])->name('admin.tambah.pertanyaanUmum')->middleware('auth');
+
+Route::get('/admin-tambah-pertanyaanUmum', function () {return view('admin.tambahPertanyaanUmum');})->middleware('auth');
 

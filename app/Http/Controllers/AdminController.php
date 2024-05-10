@@ -70,4 +70,22 @@ class AdminController extends Controller
         $user->delete();
         return response()->json(['success' => true, 'message' => 'Pengguna berhasil dihapus']);
     }
+
+     public function tambahPertanyaanUmum(Request $request)
+    {
+        $validatedData = $request->validate([
+            'pertanyaan' => 'required|string',
+            'A' => 'required|string',
+            'B' => 'required|string',
+            'C' => 'required|string',
+            'D' => 'required|string',
+            'jawabanBenar' => 'required|string',
+            'penjelasan' => 'string',
+            'nilai' => 'numeric',
+        ]);
+
+        $pertanyaanUmum = PertanyaanUmum::create($validatedData);
+
+        return response()->json(['message' => 'Pertanyaan berhasil disimpan', 'data' => $pertanyaanUmum], 201);
+    }
 }
