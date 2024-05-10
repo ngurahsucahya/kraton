@@ -66,6 +66,7 @@ Route::post('/register', [RegisterController::class, 'store']);
 Route::get('/index', function () {return view('index');});
 Route::get('/profile', [ProfilController::class, 'show'])->middleware('auth')->name('profile.show');
 
+//ADMIN DASHBOARD
 Route::get('/admin-dashboard', [AdminController::class, 'showDashboard'])->name('admin.dashboard')->middleware('auth');
 Route::get('/admin', function () {
     $role = Auth::check() ? Auth::user()->role : null;
@@ -90,7 +91,20 @@ Route::get('/semua-users', function () {
     }
 })->middleware('auth');
 
+Route::get('/lihat-pertanyaan-umum', [AdminController::class, 'lihatSemuaPertanyaanUmum'])->name('admin.pertanyaanUmum.list')->middleware('auth');
+Route::get('/semua-pertanyaanUmum', function () {
+    $role = Auth::check() ? Auth::user()->role : null;
+    if ($role === 'Admin') {
+        return redirect()->route('admin.pertanyaanUmum.list');
+    } elseif ($role === 'Siswa') {
+         return view('404');
+    } else {
+        return redirect()->route('login');
+    }
+})->middleware('auth');
+
 Route::delete('/delete-user/{id}', [AdminController::class, 'delete']);
 
+Route::delete('/delete-pertanyaan-umum/{id}', [AdminController::class, 'deletePertanyaanUmum']);
 
 
