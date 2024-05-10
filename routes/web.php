@@ -111,3 +111,4 @@ Route::post('/tambah-pertanyaanUmum', [AdminController::class, 'tambahPertanyaan
 
 Route::get('/admin-tambah-pertanyaanUmum', function () {return view('admin.tambahPertanyaanUmum');})->middleware('auth');
 
+Route::post('/simpan-nilai', [FinishController::class, 'simpanNilai']);
