@@ -7,6 +7,8 @@ use App\Http\Controllers\CekJawabanController;
 use App\Http\Controllers\FinishController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\OrangTuaController;
+
 
 
 //uji coba
@@ -112,3 +114,7 @@ Route::post('/tambah-pertanyaanUmum', [AdminController::class, 'tambahPertanyaan
 Route::get('/admin-tambah-pertanyaanUmum', function () {return view('admin.tambahPertanyaanUmum');})->middleware('auth');
 
 Route::post('/simpan-nilai', [FinishController::class, 'simpanNilai']);
+
+Route::get('/riwayat/{id_user}', [ProfilController::class, 'riwayatPengetahuanUmum'])->name('riwayat.pengetahuan');
+
+ Route::get('/dashboard_orang_tua', [OrangTuaController::class, 'index'])->name('orangtua.dashboardOrangTua');
