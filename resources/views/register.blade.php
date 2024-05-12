@@ -92,9 +92,16 @@
                                     <input type="text" class="form-control border-0" placeholder="" id="name" name="name" style="height: 55px;" required>
                                 </div>
                                 <div class="col-12">
-                                    <label for="kelas" class="form-label">Kelas</label>
-                                    <input type="number" class="form-control border-0" placeholder="" id="kelas" name="kelas" style="height: 55px;" required>
-                                </div>
+                                    <label for="role" class="form-label">Peran</label>
+                                    <select class="form-select border-0" id="role" name="role" style="height: 55px;" required>
+                                        <option value="Siswa" selected>Siswa</option>
+                                        <option value="Orang Tua">Orang Tua</option>
+                                    </select>
+                                </div>            
+                                    <div class="col-12">
+                                        <label for="kelas" class="form-label">Kelas</label>
+                                        <input type="number" class="form-control border-0" placeholder="" id="kelas" name="kelas" style="height: 55px;'>
+                                    </div>                        
                                 <div class="col-12">
                                     <label for="tanggal_lahir" class="form-label">Tanggal Lahir</label>
                                     <input type="date" class="form-control border-0" placeholder="" id="tanggal_lahir" name="tanggal_lahir" style="height: 55px;" required>
@@ -117,6 +124,7 @@
             </div>
         </div>
     </div>
+
     <!-- Quote End -->
 
     <!-- JavaScript Libraries -->
@@ -132,6 +140,16 @@
 
     <!-- Template Javascript -->
     <script src="{{ asset('template/js/main.js')}}"></script>
+    <script>
+        document.getElementById('role').addEventListener('change', function () {
+            var kelasField = document.getElementById('kelas');
+            if (this.value === 'Orang Tua') {
+                kelasField.style.display = 'none';
+            } else {
+                kelasField.style.display = 'block';
+            }
+        });
+    </script>
 </body>
 
 <!-- Footer Start -->

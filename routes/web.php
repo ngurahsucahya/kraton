@@ -29,6 +29,8 @@ Route::get('/home', function () {
         return redirect()->route('admin.dashboard');
     } elseif ($role === 'Siswa') {
          return view('pilihmapel');
+    } elseif ($role === 'Orang Tua') {
+         return redirect()->route('dashboardOrangTua');
     } else {
         return redirect()->route('login');
     }
@@ -117,4 +119,5 @@ Route::post('/simpan-nilai', [FinishController::class, 'simpanNilai']);
 
 Route::get('/riwayat/{id_user}', [ProfilController::class, 'riwayatPengetahuanUmum'])->name('riwayat.pengetahuan');
 
- Route::get('/dashboard_orang_tua', [OrangTuaController::class, 'index'])->name('orangtua.dashboardOrangTua');
+ Route::get('/dashboard-orang-tua', [OrangTuaController::class, 'index'])->name('dashboardOrangTua');
+ 

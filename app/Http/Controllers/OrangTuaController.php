@@ -13,6 +13,9 @@ class OrangTuaController extends Controller
      */
     public function index()
     {
+        if (auth()->user()->role !== 'Orang Tua') {
+            abort(404, 'Unauthorized');
+        }
         // Retrieve the authenticated Orang Tua user
         $orangTua = auth()->user();
 
