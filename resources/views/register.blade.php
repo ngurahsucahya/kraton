@@ -98,13 +98,17 @@
                                         <option value="Orang Tua">Orang Tua</option>
                                     </select>
                                 </div>            
-                                    <div class="col-12">
-                                        <label for="kelas" class="form-label">Kelas</label>
-                                        <input type="number" class="form-control border-0" placeholder="" id="kelas" name="kelas" style="height: 55px;'>
+                                    <div class="col-12"  id="kelas">
+                                        <label for="kelas " class="form-label">Kelas</label>
+                                        <input type="number" class="form-control border-0" placeholder="" id="kelas" name="kelas" style="height: 55px;">
                                     </div>                        
                                 <div class="col-12">
                                     <label for="tanggal_lahir" class="form-label">Tanggal Lahir</label>
                                     <input type="date" class="form-control border-0" placeholder="" id="tanggal_lahir" name="tanggal_lahir" style="height: 55px;" required>
+                                </div>
+                                <div class="col-12" id="email_orang_tua">
+                                    <label for="email_orang_tua" class="form-label">Email Orang Tua</label>
+                                    <input type="email" class="form-control border-0" placeholder="" id="email_orang_tua" name="email_orang_tua" style="height: 55px;">
                                 </div>
                                 <div class="col-12">              
                                     <label for="password" class="form-label">Password</label>
@@ -115,7 +119,7 @@
                                     <input type="password" class="form-control border-0" placeholder="" id="password_confirmation" name="password_confirmation" style="height: 55px;" required>
                                 </div>
                                 <div class="col-12">
-                                    <button class="btn btn-primary rounded-pill py-3 px-5" type="submit">Submit</button>
+                                    <button class="btn btn-primary rounded-pill py-3 px-5" type="submit">Kirimt</button>
                                 </div>
                             </div>
                         </form>
@@ -143,10 +147,13 @@
     <script>
         document.getElementById('role').addEventListener('change', function () {
             var kelasField = document.getElementById('kelas');
+            var emailOrangTuaField = document.getElementById('email_orang_tua');
             if (this.value === 'Orang Tua') {
                 kelasField.style.display = 'none';
+                emailOrangTuaField.style.display = 'none';
             } else {
                 kelasField.style.display = 'block';
+                emailOrangTuaField.style.display = 'block';
             }
         });
     </script>
