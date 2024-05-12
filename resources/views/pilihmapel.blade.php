@@ -1,35 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< HEAD
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pilih Mata Pelajaran</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            font-family: "Comic Sans MS", cursive, sans-serif;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-        }
-
-        /* Warna latar belakang kartu */
-        .card {
-            background-color: #f8f9fa;
-            border: 1px solid #eaeaea;
-            border-radius: 10px;
-        }
-
-        @media (max-width: 767px) {
-            .mb-md-4 {
-                margin-bottom: 1.5rem; 
-            }
-        }
-    </style>
-=======
 
 <head>
     <meta charset="utf-8">
@@ -61,24 +31,10 @@
     <!-- Template Stylesheet -->
     <link href="{{ asset('template/css/style.css')}}" rel="stylesheet">
   
->>>>>>> 3fa509015ba816b9b33fe9b3ba7a03cd17c6fa02
 </head>
 
 <body>
 
-<<<<<<< HEAD
-    <div class="container">
-        <h1 class="text-center mb-4">Pilih Mata Pelajaran</h1>
-
-        <div class="row">
-            <!-- Card 1 -->
-            <div class="col-md-4 mb-4 mb-md-0">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Pengetahuan Umum</h5>
-                        <p class="card-text">Berisi soal-soal pengetahuan Umum</p>
-                        <a href="/pengetahuan-umum" class="btn btn-primary">Mulai</a>
-=======
  <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0">
         <a href="index.html" class="navbar-brand d-flex align-items-center border-end px-4 px-lg-5">
@@ -101,7 +57,6 @@
                         <!-- <a href="team.html" class="dropdown-item">Our Team</a>
                         <a href="testimonial.html" class="dropdown-item">Testimonial</a>
                         <a href="404.html" class="dropdown-item">404 Page</a> -->
->>>>>>> 3fa509015ba816b9b33fe9b3ba7a03cd17c6fa02
                     </div>
                 </div>
                 @auth 
@@ -148,17 +103,6 @@
                         </div>
                     </div>
                 </div>
-<<<<<<< HEAD
-            </div>
-
-            <!-- Card 3 -->
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">IPA</h5>
-                        <p class="card-text">Berisi soal-soal seputar alam</p>
-                        <a href="/ipa" class="btn btn-primary">Mulai</a>
-=======
                 <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="service-item rounded overflow-hidden">
                         <img class="img-fluid" src="{{ asset('template/img/20220805_123216.jpg')}}" alt="">
@@ -222,7 +166,6 @@
                             <p>Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam.</p>
                             <a class="small fw-medium" href="">Pilih<i class="fa fa-arrow-right ms-2"></i></a>
                         </div>
->>>>>>> 3fa509015ba816b9b33fe9b3ba7a03cd17c6fa02
                     </div>
                 </div>
             </div>
@@ -230,14 +173,6 @@
     </div>
     <!-- Service End -->
 
-<<<<<<< HEAD
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
-    
-</body>
-</html>
-
-
-=======
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -272,4 +207,3 @@
     <!-- Footer End -->
 
 </html>
->>>>>>> 3fa509015ba816b9b33fe9b3ba7a03cd17c6fa02

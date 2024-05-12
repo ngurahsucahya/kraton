@@ -92,5 +92,7 @@ Route::get('/semua-users', function () {
 
 Route::delete('/delete-user/{id}', [AdminController::class, 'delete']);
 
+Route::get('/leaderboard', function () {return view('leaderboard');})->middleware('auth');
+
 
 
