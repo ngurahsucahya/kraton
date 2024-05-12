@@ -7,6 +7,8 @@ use App\Http\Controllers\CekJawabanController;
 use App\Http\Controllers\FinishController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\OrangTuaController;
+
 
 
 //uji coba
@@ -27,6 +29,8 @@ Route::get('/home', function () {
         return redirect()->route('admin.dashboard');
     } elseif ($role === 'Siswa') {
          return view('pilihmapel');
+    } elseif ($role === 'Orang Tua') {
+         return redirect()->route('dashboardOrangTua');
     } else {
         return redirect()->route('login');
     }
@@ -66,6 +70,7 @@ Route::post('/register', [RegisterController::class, 'store']);
 Route::get('/index', function () {return view('index');});
 Route::get('/profile', [ProfilController::class, 'show'])->middleware('auth')->name('profile.show');
 
+//ADMIN DASHBOARD
 Route::get('/admin-dashboard', [AdminController::class, 'showDashboard'])->name('admin.dashboard')->middleware('auth');
 Route::get('/admin', function () {
     $role = Auth::check() ? Auth::user()->role : null;
@@ -90,7 +95,29 @@ Route::get('/semua-users', function () {
     }
 })->middleware('auth');
 
-Route::delete('/delete-user/{id}', [AdminController::class, 'delete']);
+Route::get('/lihat-pertanyaan-umum', [AdminController::class, 'lihatSemuaPertanyaanUmum'])->name('admin.pertanyaanUmum.list')->middleware('auth');
+Route::get('/semua-pertanyaanUmum', function () {
+    $role = Auth::check() ? Auth::user()->role : null;
+    if ($role === 'Admin') {
+        return redirect()->route('admin.pertanyaanUmum.list');
+    } elseif ($role === 'Siswa') {
+         return view('404');
+    } else {
+        return redirect()->route('login');
+    }
+})->middleware('auth');
 
+Route::delete('/delete-user/{id}', [AdminController::class, 'delete'])->middleware('auth');
 
+Route::delete('/delete-pertanyaan-umum/{id}', [AdminController::class, 'deletePertanyaanUmum'])->middleware('auth');
 
+Route::post('/tambah-pertanyaanUmum', [AdminController::class, 'tambahPertanyaanUmum'])->name('admin.tambah.pertanyaanUmum')->middleware('auth');
+
+Route::get('/admin-tambah-pertanyaanUmum', function () {return view('admin.tambahPertanyaanUmum');})->middleware('auth');
+
+Route::post('/simpan-nilai', [FinishController::class, 'simpanNilai']);
+
+Route::get('/riwayat/{id_user}', [ProfilController::class, 'riwayatPengetahuanUmum'])->name('riwayat.pengetahuan');
+
+ Route::get('/dashboard-orang-tua', [OrangTuaController::class, 'index'])->name('dashboardOrangTua');
+ 

@@ -34,6 +34,7 @@ class UserSeeder extends Seeder
         ]);
 
         User::create([
+<<<<<<< HEAD
             'username' => 'aufar',
             'name' => 'Aufar',
             'email' => 'aufar@kraton.com',
@@ -41,6 +42,36 @@ class UserSeeder extends Seeder
             'tanggal_lahir' => '1990-05-15',
             'password' => bcrypt('kraton01'),
             'role' => 'Admin',
+=======
+            'username' => 'Sucahya03',
+            'name' => 'Ngurah Sucahya',
+            'email' => 'sucahya3@kraton.com',
+            'kelas' => '1',
+            'tanggal_lahir' => '1990-05-15',
+            'password' => bcrypt('kraton01'),
+            'role' => 'Siswa',
+        ]);
+
+        User::create([
+            'username' => 'Sucahya04',
+            'name' => 'Ngurah Sucahya',
+            'email' => 'sucahya4@kraton.com',
+            'kelas' => '1',
+            'tanggal_lahir' => '1990-05-15',
+            'password' => bcrypt('kraton01'),
+            'role' => 'Siswa',
+            'email_orang_tua' => 'ngurahsucahya1@kraton.com',
+        ]);
+
+        User::create([
+            'username' => 'ngurahsucahya01',
+            'name' => 'Ngurah Sucahya',
+            'email' => 'ngurahsucahya1@kraton.com',
+            'kelas' => '1',
+            'tanggal_lahir' => '1990-05-15',
+            'password' => bcrypt('kraton01'),
+            'role' => 'Orang Tua',
+>>>>>>> a5680b51dea22c40a672eac5496b7d16fa1d41d9
         ]);
     }
 }
