@@ -120,4 +120,6 @@ Route::post('/simpan-nilai', [FinishController::class, 'simpanNilai']);
 Route::get('/riwayat/{id_user}', [ProfilController::class, 'riwayatPengetahuanUmum'])->name('riwayat.pengetahuan');
 
  Route::get('/dashboard-orang-tua', [OrangTuaController::class, 'index'])->name('dashboardOrangTua');
+
+ Route::get('/leaderboard', function () {return view('leaderboard');});
  
