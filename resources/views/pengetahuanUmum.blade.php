@@ -182,19 +182,11 @@
                                     Hata
                                 @endif
                             @else
-                                <span class="badge badge-dark" style="color: white; font-size: 140%;">
-                                Yeay, kamu akan belajar banyak hari ini.
                                 </span><br><br>
-                                <span class="badge badge-success" style="color: white; font-size: 140%;">
-                                Kamu akan diberikan {{request()->session()->get('pertanyaan')}} total pertanyaan.
-                                </span><br><br>
-                                <span class="badge badge-success" style="color: white; font-size: 140%;">
-                                Kamu memiliki {{request()->session()->get('time')}} detik untuk menjawab</br> setiap pertanyaan.
-                                </span><br><br>
-                                <span class="badge badge-dark" style="color: white; font-size: 140%;">
-                                Semoga berhasil.
+                                <span class="" style="color: black; font-size: 140%;">
+                                selamat mengerjakan!
                                 </span><br><br><br>
-                                <a href="?page=1" class="btn btn-primary btn-lg btn-block">AYO MULAI!</a>
+                                <a href="?page=1" class="btn btn-primary btn-lg btn-block">MULAI!</a>
                             @endif
                             @else
 
@@ -221,7 +213,7 @@
                     <span class="badge badge-info" style="color: white; font-size: 130%;">Total pertanyaan: {{request()->session()->get('pertanyaan')}}</span>
                     <br><br>
                 <button type="button" class="btn btn-danger btn-lg btn-block" onclick="myFunc()">
-                    KELUAR
+                    kembali
                 </button>
                     </center>
                 <script>
