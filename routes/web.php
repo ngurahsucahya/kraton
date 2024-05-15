@@ -7,6 +7,8 @@ use App\Http\Controllers\CekJawabanController;
 use App\Http\Controllers\FinishController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\OrangTuaController;
+
 
 
 //uji coba
@@ -27,6 +29,8 @@ Route::get('/home', function () {
         return redirect()->route('admin.dashboard');
     } elseif ($role === 'Siswa') {
          return view('pilihmapel');
+    } elseif ($role === 'Orang Tua') {
+         return redirect()->route('dashboardOrangTua');
     } else {
         return redirect()->route('login');
     }
@@ -66,6 +70,7 @@ Route::post('/register', [RegisterController::class, 'store']);
 Route::get('/index', function () {return view('index');});
 Route::get('/profile', [ProfilController::class, 'show'])->middleware('auth')->name('profile.show');
 
+//ADMIN DASHBOARD
 Route::get('/admin-dashboard', [AdminController::class, 'showDashboard'])->name('admin.dashboard')->middleware('auth');
 Route::get('/admin', function () {
     $role = Auth::check() ? Auth::user()->role : null;
@@ -91,8 +96,6 @@ Route::get('/semua-users', function () {
 })->middleware('auth');
 
 Route::delete('/delete-user/{id}', [AdminController::class, 'delete']);
-
-Route::get('/leaderboard', function () {return view('leaderboard');})->middleware('auth');
 
 
 

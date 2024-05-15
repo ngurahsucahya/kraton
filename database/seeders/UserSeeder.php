@@ -32,15 +32,5 @@ class UserSeeder extends Seeder
             'password' => bcrypt('kraton01'),
             'role' => 'Admin',
         ]);
-
-        User::create([
-            'username' => 'aufar',
-            'name' => 'Aufar',
-            'email' => 'aufar@kraton.com',
-            'kelas' => '1',
-            'tanggal_lahir' => '1990-05-15',
-            'password' => bcrypt('kraton01'),
-            'role' => 'Admin',
-        ]);
     }
 }

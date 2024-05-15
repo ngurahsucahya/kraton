@@ -62,52 +62,53 @@
     </nav>
     <!-- Navbar End -->
 
-    <!-- Content Start -->
     <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">{{ __('Profil Saya') }}</div>
+    <h1 class="mb-4">Riwayat Nilai</h1>
+    @if($nilai->isEmpty())
+        <div class="alert alert-info" role="alert">
+            Tidak ada riwayat nilai untuk pengguna ini.
+        </div>
+    @else
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <!-- <th scope="col">#</th> -->
+                        <th scope="col">Mata Pelajaran</th>
+                        <th scope="col">Nilai</th>
+                        <th scope="col">Tanggal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($nilai as $item)
+                        <tr>
+                            <!-- <td>{{ $loop->iteration }}</td> -->
+                            <td>{{ $item->mata_pelajaran }}</td>
+                            <td>{{ $item->nilai }}</td>
+                            <td>{{ $item->created_at->format('d/m/Y H:i:s') }}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+       <div class="d-flex justify-content-center align-items-center mt-1 mb-3">
+            @if ($nilai->previousPageUrl())
+                <a href="{{ $nilai->previousPageUrl() }}" class="btn btn-primary">&laquo; Prev</a>
+            @else
+                <span class="btn btn-secondary disabled">&laquo; Prev</span>
+            @endif
 
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <tbody>
-                                    <tr>
-                                        <th>Nama:</th>
-                                        <td>{{ Auth::user()->name }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Email:</th>
-                                        <td>{{ Auth::user()->email }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Kelas:</th>
-                                        <td>{{ Auth::user()->kelas }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Tanggal Lahir:</th>
-                                        <td>{{ Auth::user()->tanggal_lahir }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Foto Profil:</th>
-                                        <td><img src="{{ asset(Auth::user()->profile_photo_path) }}" alt="Foto Profil" width="100"></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @if ($nilai->hasMorePages())
+                <a href="{{ $nilai->nextPageUrl() }}" class="btn btn-primary ms-2">Next &raquo;</a>
+            @else
+                <span class="btn btn-secondary disabled ms-2">Next &raquo;</span>
+            @endif
         </div>
-    </div>
-    <!-- Content End -->
-     <!-- Tombol untuk menuju ke halaman riwayat nilai -->
-    <div class="row justify-content-center mt-4">
-        <div class="col-md-8">
-            <a href="{{ route('riwayat.pengetahuan', ['id_user' => Auth::user()->id]) }}" class="btn btn-primary">Lihat Riwayat Nilai</a>
-        </div>
-    </div>
+
+
+    @endif
+</div>
+
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-body footer mt-0 pt-0 wow fadeIn" data-wow-delay="0.1s">
         <div class="container">

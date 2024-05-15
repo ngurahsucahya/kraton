@@ -46,4 +46,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function nilaiAnak()
+    {
+        return $this->hasMany(DaftarNilai::class, 'id_user', 'id');
+    }
 }
+
+
