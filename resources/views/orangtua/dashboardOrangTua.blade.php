@@ -61,53 +61,36 @@
         </div>
     </nav>
     <!-- Navbar End -->
-
-    <!-- Content Start -->
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">{{ __('Profil Saya') }}</div>
-
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <tbody>
-                                    <tr>
-                                        <th>Nama:</th>
-                                        <td>{{ Auth::user()->name }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Email:</th>
-                                        <td>{{ Auth::user()->email }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Kelas:</th>
-                                        <td>{{ Auth::user()->kelas }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Tanggal Lahir:</th>
-                                        <td>{{ Auth::user()->tanggal_lahir }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Foto Profil:</th>
-                                        <td><img src="{{ asset(Auth::user()->profile_photo_path) }}" alt="Foto Profil" width="100"></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+    <div class="container">
+        <h1 class="mt-5">Dashboard Orang Tua</h1>
+        @foreach($nilaiAnak as $namaAnak => $nilai)
+            <div class="mt-4">
+                <h2>Riwayat Nilai {{ $namaAnak }}</h2>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Mata Pelajaran</th>
+                                <th scope="col">Poin</th>
+                                <th scope="col">Waktu</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($nilai as $item)
+                            <tr>
+                                <td>{{ $item->mata_pelajaran }}</td>
+                                <td>{{ $item->nilai }}</td>
+                                <td>{{ $item->created_at }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
-        </div>
+        @endforeach
     </div>
-    <!-- Content End -->
-     <!-- Tombol untuk menuju ke halaman riwayat nilai -->
-    <div class="row justify-content-center mt-4">
-        <div class="col-md-8">
-            <a href="{{ route('riwayat.pengetahuan', ['id_user' => Auth::user()->id]) }}" class="btn btn-primary">Lihat Riwayat Nilai</a>
-        </div>
-    </div>
+
+
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-body footer mt-0 pt-0 wow fadeIn" data-wow-delay="0.1s">
         <div class="container">

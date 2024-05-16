@@ -7,6 +7,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Favicon -->
     <link href="{{asset('template/img/favicon.ico')}}" rel="icon">
@@ -34,8 +35,7 @@
 </head>
 
 <body>
-
- <!-- Navbar Start -->
+<!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0">
         <a href="index.html" class="navbar-brand d-flex align-items-center border-end px-4 px-lg-5">
             <h2 class="m-0 text-primary">Kraton</h2>
@@ -69,38 +69,46 @@
     </nav>
     <!-- Navbar End -->
 
-    <!-- Service Start -->
-<div class="container-xxl py-5">
-        <div class="container">
-            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h6 class="text-primary">Selamat Datang!</h6>
-                <h1 class="mb-4">Halaman Admin</h1>
-            </div>
-        </div>
-    <div class="row mt-4">
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Jumlah Pengguna</h5>
-                    <h1 class="mb-0" data-toggle="counter-up">{{ $userCount }}</h1>
-                    <a href="/semua-users" class="btn btn-primary">Lihat</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Jumlah Pertanyaan</h5>
-                    <h1 class="mb-0" data-toggle="counter-up">{{ $questionCount }}</h1>
-                    <a href="/semua-pertanyaanUmum" class="btn btn-primary">Lihat</a>
-                    <a href="/tanbah-pertanyaanUmum" class="btn btn-primary">Tambah</a>
-                </div>
+
+    <div class="container custom-card">
+            <div class="custom-card-body">
+                @if(count($pertanyaanUmum) > 0)
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th class="text-center align-middle">Pertanyaan</th>
+                                <th class="text-center align-middle">Piliahan A</th>
+                                <th class="text-center align-middle">Piliahan B</th>
+                                <th class="text-center align-middle">Piliahan C</th>
+                                <th class="text-center align-middle">Piliahan D</th>
+                                <th class="text-center align-middle">Jawaban Benar</th>
+                                <th class="text-center align-middle">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($pertanyaanUmum as $pertanyaanUmum)
+                                <tr>
+                                    <td class="text-center align-middle">{{ $pertanyaanUmum ->pertanyaan }}</td>
+                                    <td class="text-center align-middle">{{ $pertanyaanUmum ->A }}</td>
+                                    <td class="text-center align-middle">{{ $pertanyaanUmum ->B }}</td>
+                                    <td class="text-center align-middle">{{ $pertanyaanUmum ->C }}</td>
+                                    <td class="text-center align-middle">{{ $pertanyaanUmum ->D }}</td>
+                                    <td class="text-center align-middle">{{ $pertanyaanUmum ->jawabanBenar }}</td>
+                                    <td class="text-center align-middle">
+                                        <button class="btn btn-danger" onclick="deleteUser({{ $pertanyaanUmum ->id }})">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                @else
+                    <p class="mt-3">Data pengguna tidak ditemukan.</p>
+                @endif
             </div>
         </div>
     </div>
-</div>
-   
-    <!-- Service End -->
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -115,6 +123,34 @@
 
     <!-- Template Javascript -->
     <script src="{{ asset('template/js/main.js')}}"></script>
+
+    <script>
+        function deleteUser(pertanyaanUmumID) {
+            if (confirm("Apakah Anda yakin ingin menghapus pertanayaan umum ini?")) {
+                var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+                fetch(`/delete-pertanyaan-umum/${pertanyaanUmumID}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'X-CSRF-TOKEN': csrfToken,
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ id: pertanyaanUmumID }),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Refresh halaman atau lakukan tindakan lain jika penghapusan berhasil
+                        location.reload(); // Contoh: Memuat ulang halaman
+                    } else {
+                        // Tampilkan pesan kesalahan jika diperlukan
+                        alert(data.message);
+                    }
+                });
+            }
+        }
+    </script>
+
 </body>
 
 <!-- Footer Start -->

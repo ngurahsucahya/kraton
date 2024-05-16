@@ -74,52 +74,45 @@
                 <div class="col-lg-6 quote-text py-5 wow fadeIn" data-wow-delay="0.5s">
                     <div class="p-lg-5 pe-lg-0">
                         <h6 class="text-primary"></h6>
-                        <h1 class="mb-4">DAFTAR</h1>
-                        <p class="mb-4 pb-2">Silakan isi identitas kamu dengan benar ya</p>
-                        <form method="POST" action="{{ route('register') }}">
+                        <h1 class="mb-4">DAFTAR</h1> 
+                        <p class="mb-4 pb-2">Silakan isi pertanyaan dengan teliti.</p>
+                        <form method="POST" action="{{ route('admin.tambah.pertanyaanUmum') }}">
                             @csrf
                             <div class="row g-3">
                                 <div class="col-12">              
-                                    <label for="username" class="form-label">Username</label>
-                                    <input type="text" class="form-control border-0" placeholder="" id="username" name="username" style="height: 55px;" required>
+                                    <label for="pertanyaan" class="form-label">Pertanyaan</label>
+                                    <input type="text" class="form-control border-0" placeholder="" id="pertanyaan" name="pertanyaan" style="height: 55px;" required>
                                 </div>
                                 <div class="col-12">
-                                    <label for="email" class="form-label">Email</label>
-                                    <input type="email" class="form-control border-0" placeholder="" id="email" name="email" style="height: 55px;" required>
+                                    <label for="A" class="form-label">Jawaban Pilihan A</label>
+                                    <input type="text" class="form-control border-0" placeholder="" id="A" name="A" style="height: 55px;" required>
                                 </div>
                                 <div class="col-12">
-                                    <label for="name" class="form-label">Nama</label>
-                                    <input type="text" class="form-control border-0" placeholder="" id="name" name="name" style="height: 55px;" required>
+                                    <label for="B" class="form-label">Jawaban Pilihan B</label>
+                                    <input type="text" class="form-control border-0" placeholder="" id="B" name="B" style="height: 55px;" required>
                                 </div>
                                 <div class="col-12">
-                                    <label for="role" class="form-label">Peran</label>
-                                    <select class="form-select border-0" id="role" name="role" style="height: 55px;" required>
-                                        <option value="Siswa" selected>Siswa</option>
-                                        <option value="Orang Tua">Orang Tua</option>
+                                    <label for="C" class="form-label">Jawaban Pilihan C</label>
+                                    <input type="text" class="form-control border-0" placeholder="" id="C" name="C" style="height: 55px;" required>
+                                </div>
+                                <div class="col-12">
+                                    <label for="D" class="form-label">Jawaban Pilihan D</label>
+                                    <input type="txt" class="form-control border-0" placeholder="" id="D" name="D" style="height: 55px;" required>
+                                </div>
+                                <div class="col-12">              
+                                    <label for="jawabanBenar" class="form-label">Jawaban Benar</label>
+                                    <select class="form-select" id="jawabanBenar" name="jawabanBenar" style="height: 55px;" required>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                        <option value="D">D</option>
                                     </select>
-                                </div>            
-                                    <div class="col-12"  id="kelas">
-                                        <label for="kelas " class="form-label">Kelas</label>
-                                        <input type="number" class="form-control border-0" placeholder="" id="kelas" name="kelas" style="height: 55px;">
-                                    </div>                        
-                                <div class="col-12">
-                                    <label for="tanggal_lahir" class="form-label">Tanggal Lahir</label>
-                                    <input type="date" class="form-control border-0" placeholder="" id="tanggal_lahir" name="tanggal_lahir" style="height: 55px;" required>
-                                </div>
-                                <div class="col-12" id="email_orang_tua">
-                                    <label for="email_orang_tua" class="form-label">Email Orang Tua</label>
-                                    <input type="email" class="form-control border-0" placeholder="" id="email_orang_tua" name="email_orang_tua" style="height: 55px;">
-                                </div>
                                 <div class="col-12">              
-                                    <label for="password" class="form-label">Password</label>
-                                    <input type="password" class="form-control border-0" placeholder="" id="password" name="password" style="height: 55px;" required>
-                                </div>
-                                <div class="col-12">              
-                                    <label for="password_confirmation" class="form-label">Konfirmasi Password</label>
-                                    <input type="password" class="form-control border-0" placeholder="" id="password_confirmation" name="password_confirmation" style="height: 55px;" required>
+                                    <label for="penjelasan" class="form-label">Penjelasan</label>
+                                    <input type="text" class="form-control border-0" placeholder="" id="penjelasan" name="penjelasan" style="height: 55px;" required>
                                 </div>
                                 <div class="col-12">
-                                    <button class="btn btn-primary rounded-pill py-3 px-5" type="submit">Kirimt</button>
+                                    <button class="btn btn-primary rounded-pill py-3 px-5" type="submit">Submit</button>
                                 </div>
                             </div>
                         </form>
@@ -128,7 +121,6 @@
             </div>
         </div>
     </div>
-
     <!-- Quote End -->
 
     <!-- JavaScript Libraries -->
@@ -144,19 +136,6 @@
 
     <!-- Template Javascript -->
     <script src="{{ asset('template/js/main.js')}}"></script>
-    <script>
-        document.getElementById('role').addEventListener('change', function () {
-            var kelasField = document.getElementById('kelas');
-            var emailOrangTuaField = document.getElementById('email_orang_tua');
-            if (this.value === 'Orang Tua') {
-                kelasField.style.display = 'none';
-                emailOrangTuaField.style.display = 'none';
-            } else {
-                kelasField.style.display = 'block';
-                emailOrangTuaField.style.display = 'block';
-            }
-        });
-    </script>
 </body>
 
 <!-- Footer Start -->

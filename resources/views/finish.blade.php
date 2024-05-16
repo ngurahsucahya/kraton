@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>hasil Latihan</title>
 
@@ -152,7 +153,7 @@
 
 </div>
 </div>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         const answers = [];
         var trueMatches = 0;
@@ -169,12 +170,39 @@
                 document.getElementById("final").innerHTML = "Ayo latihan lagi!";
                 document.getElementById("trueMatches").innerHTML = trueMatches + " Benar";
                 document.getElementById("falseMatches").innerHTML = falseMatches + " Salah";
+                
+                // Setelah perhitungan jumlah jawaban benar selesai
+                var nilai = trueMatches * 10;
+                var id_user = "{{ auth()->user()->id }}";
+                // Hitung nilai berdasarkan jumlah jawaban benar
+                var data = {
+                    id_user: id_user, // Ganti dengan ID pengguna yang sesuai
+                    nilai: nilai,
+                    mata_pelajaran: "Pengetahuan Umum" // Ganti dengan nama mata pelajaran yang sesuai
+                };
+
+                // Kirim data ke backend menggunakan Ajax
+                $.ajax({
+                    type: "POST",
+                    url: "/simpan-nilai", // Ganti dengan URL endpoint untuk menyimpan nilai
+                    data: data,
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: function(response) {
+                        console.log("Nilai berhasil disimpan:", response);
+                        // Tambahkan logika atau tindakan tambahan jika diperlukan setelah penyimpanan berhasil
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("Terjadi kesalahan:", error);
+                        // Tambahkan penanganan kesalahan jika diperlukan
+                    }
+                });
             } else {
                 let temp = document.getElementById('correct' + i).innerHTML;
                 if(answers[i] == "A" || answers[i] == "B" || answers[i] == "C" || answers[i] == "D" ){
                     document.getElementById("yourAnswer" + i).innerHTML = answers[i];
                 }else{
-
                     document.getElementById("yourAnswer" + i).innerHTML = "Empty";
                 }
                 if(temp == answers[i]){
@@ -194,12 +222,10 @@
         document.addEventListener('contextmenu', event => event.preventDefault());
 
         function myFunc() {
-
             if (confirm("All the settings you set will be reset and you will be redirected to the homepage. Do you confirm?") == true) {
                 sessionStorage.clear();
                 window.location.href = "selesai";
             }
-
         }
     </script>
 
