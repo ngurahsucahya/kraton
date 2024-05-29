@@ -52,7 +52,7 @@
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Fitur Lain</a>
                     <div class="dropdown-menu bg-light m-0">
-                        <a href="feature.html" class="dropdown-item">Forum</a>
+                        <!-- <a href="feature.html" class="dropdown-item">Forum</a> -->
                         <a href="quote.html" class="dropdown-item">Berita Terbaru</a>
                         <!-- <a href="team.html" class="dropdown-item">Our Team</a>
                         <a href="testimonial.html" class="dropdown-item">Testimonial</a>
