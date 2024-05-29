@@ -113,22 +113,21 @@
     <script>
         // Dummy data for leaderboard
         const leaderboardData = [
-            { rank: 1, name: "Alice Johnson", score: 1500 },
-            { rank: 2, name: "Bob Smith", score: 1450 },
-            { rank: 3, name: "Charlie Brown", score: 1400 },
-            { rank: 4, name: "Daisy Miller", score: 1350 },
-            { rank: 5, name: "Edward Wilson", score: 1300 },
-            { rank: 6, name: "Fiona Davis", score: 1250 },
-            { rank: 7, name: "George Harris", score: 1200 },
-            { rank: 8, name: "Hannah Lee", score: 1150 },
-            { rank: 9, name: "Ian Martinez", score: 1100 },
-            { rank: 10, name: "Jane Evans", score: 1050 },
-            { rank: 11, name: "Kevin White", score: 1000 },
-            { rank: 12, name: "Laura King", score: 950 },
-            { rank: 13, name: "Mike Green", score: 900 },
-            { rank: 14, name: "Nancy Wright", score: 850 },
-            { rank: 15, name: "Oscar Young", score: 800 }
-        ];
+            { rank: 1, name: "Student1", score: 1500 },
+            { rank: 2, name: "Student2", score: 1450 },
+            { rank: 3, name: "Student3", score: 1400 },
+            { rank: 4, name: "Student4", score: 1350 },
+            { rank: 5, name: "Student5", score: 1300 },
+            { rank: 6, name: "Student6", score: 1250 },
+            { rank: 7, name: "Student7", score: 1200 },
+            { rank: 8, name: "Student8", score: 1150 },
+            { rank: 9, name: "Student9", score: 1100 },
+            { rank: 10, name: "Student10", score: 1050 },
+            { rank: 11, name: "Student11", score: 1000 },
+            { rank: 12, name: "Student12", score: 950 },
+            { rank: 13, name: "Student13", score: 900 },
+            { rank: 14, name: "Student14", score: 850 },
+            { rank: 15, name: "Student15", score: 800 }        ];
 
         let currentPage = 1;
         const rowsPerPage = 10;
