@@ -162,7 +162,7 @@
                             <div class="service-icon">
                                     <i class="fa fa-solar-panel fa-3x"></i>
                             </div>
-                            <br></br><h4 class="mb-3">Bahasa Indonesia</h4>
+                            <h4 class="mb-3">Bahasa Indonesia</h4>
                             <p>Belajar Bahasa Indonesia yang asik dan menyenangkan.</p>
                             <a class="small fw-medium" href="">Pilih<i class="fa fa-arrow-right ms-2"></i></a>
                         </div>
