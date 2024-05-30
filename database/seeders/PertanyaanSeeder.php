@@ -59,6 +59,66 @@ class PertanyaanSeeder extends Seeder
             'created_at' => date("Y-m-d H:i:s"),
         ]);
 
+          PertanyaanUmum::create([
+            'pertanyaan' => 'Presiden pertama Indonesia adalah ...',
+            'A' => 'Soeharto',
+            'B' => 'Ir. Soekarno',
+            'C' => 'BJ Habibie',
+            'D' => 'Megawati Soekarnoputri',
+            'jawabanBenar' => 'B',
+            'nilai' => '10',
+            'penjelasan' => 'Ir. Soekarno adalah presiden pertama Indonesia yang menjabat dari tahun 1945 hingga 1967.',
+            'created_at' => date("Y-m-d H:i:s"),
+        ]);
+
+        PertanyaanUmum::create([
+            'pertanyaan' => 'Candi Borobudur terletak di provinsi ...',
+            'A' => 'Jawa Barat',
+            'B' => 'Bali',
+            'C' => 'Jawa Tengah',
+            'D' => 'Sumatra Utara',
+            'jawabanBenar' => 'C',
+            'nilai' => '10',
+            'penjelasan' => 'Candi Borobudur adalah candi Buddha terbesar di dunia dan terletak di Magelang, Jawa Tengah.',
+            'created_at' => date("Y-m-d H:i:s"),
+        ]);
+
+        PertanyaanUmum::create([
+            'pertanyaan' => 'Pulau terbesar di Indonesia adalah ...',
+            'A' => 'Jawa',
+            'B' => 'Sumatra',
+            'C' => 'Kalimantan',
+            'D' => 'Sulawesi',
+            'jawabanBenar' => 'C',
+            'nilai' => '10',
+            'penjelasan' => 'Kalimantan adalah pulau terbesar di Indonesia dan ketiga terbesar di dunia.',
+            'created_at' => date("Y-m-d H:i:s"),
+        ]);
+
+        PertanyaanUmum::create([
+            'pertanyaan' => 'Tahun berapakah Indonesia merdeka?',
+            'A' => '1940',
+            'B' => '1945',
+            'C' => '1950',
+            'D' => '1955',
+            'jawabanBenar' => 'B',
+            'nilai' => '10',
+            'penjelasan' => 'Indonesia merdeka pada tanggal 17 Agustus 1945.',
+            'created_at' => date("Y-m-d H:i:s"),
+        ]);
+
+        PertanyaanUmum::create([
+            'pertanyaan' => 'Ibukota negara Indonesia adalah ...',
+            'A' => 'Bandung',
+            'B' => 'Surabaya',
+            'C' => 'Jakarta',
+            'D' => 'Yogyakarta',
+            'jawabanBenar' => 'C',
+            'nilai' => '10',
+            'penjelasan' => 'Jakarta adalah ibukota negara Indonesia.',
+            'created_at' => date("Y-m-d H:i:s"),
+        ]);
+
         PertanyaanUmum::create([
             'pertanyaan' => 'Negara yang pertama kali mengakui kemerdekaan indonesia adalah ...',
             'A' => 'Jepang',

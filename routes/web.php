@@ -99,3 +99,21 @@ Route::delete('/delete-user/{id}', [AdminController::class, 'delete']);
 
 
 
+<<<<<<< HEAD
+=======
+Route::post('/tambah-pertanyaanUmum', [AdminController::class, 'tambahPertanyaanUmum'])->name('admin.tambah.pertanyaanUmum')->middleware('auth');
+
+Route::get('/admin-tambah-pertanyaanUmum', function () {return view('admin.tambahPertanyaanUmum');})->middleware('auth');
+
+Route::post('/simpan-nilai', [FinishController::class, 'simpanNilai']);
+
+Route::get('/riwayat/{id_user}', [ProfilController::class, 'riwayatPengetahuanUmum'])->name('riwayat.pengetahuan');
+
+Route::get('/dashboard-orang-tua', [OrangTuaController::class, 'index'])->name('dashboardOrangTua');
+
+Route::get('/leaderboard', [ProfilController::class, 'leaderboard'])->name('leaderboard');
+
+Route::get('/profile/edit', [ProfilController::class, 'edit'])->name('profile.edit');
+Route::post('/profile/update', [ProfilController::class, 'update'])->name('profile.update');
+ 
+>>>>>>> 86f9beee26fca756625136e95ecb18c90cc43baf

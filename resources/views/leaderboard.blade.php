@@ -3,7 +3,11 @@
 
 <head>
     <meta charset="utf-8">
+<<<<<<< HEAD
     <title>Kraton - Leaderboard</title>
+=======
+    <title>Kraton - Kreasi Education</title>
+>>>>>>> 86f9beee26fca756625136e95ecb18c90cc43baf
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -20,6 +24,14 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
+<<<<<<< HEAD
+=======
+    <!-- Libraries Stylesheet -->
+    <link href="{{ asset('template/lib/animate/animate.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('template/lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('template/lib/lightbox/css/lightbox.min.css')}}" rel="stylesheet">
+
+>>>>>>> 86f9beee26fca756625136e95ecb18c90cc43baf
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{{ asset('template/css/bootstrap.min.css')}}" rel="stylesheet">
 
@@ -40,6 +52,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
+<<<<<<< HEAD
                 <a href="index.html" class="nav-item nav-link">Beranda</a>
                 <a href="about.html" class="nav-item nav-link">Coba Kuis</a>
                 <!-- Add leaderboard link here -->
@@ -49,6 +62,20 @@
                     <div class="dropdown-menu bg-light m-0">
                         <a href="feature.html" class="dropdown-item">Forum</a>
                         <a href="quote.html" class="dropdown-item">Berita Terbaru</a>
+=======
+                <a href="/" class="nav-item nav-link active">Beranda</a>
+                <!-- <a href="/leaderboard" class="nav-item nav-link">Leaderboard</a> -->
+                <!-- <a href="service.html" class="nav-item nav-link">Fitur</a> -->
+                <!-- <a href="project.html" class="nav-item nav-link">Project</a> -->
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Fitur Lain</a>
+                    <div class="dropdown-menu bg-light m-0">
+                        <!-- <a href="feature.html" class="dropdown-item">Forum</a> -->
+                        <a href="/blog" class="dropdown-item">Berita Terbaru</a>
+                        <!-- <a href="team.html" class="dropdown-item">Our Team</a>
+                        <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                        <a href="404.html" class="dropdown-item">404 Page</a> -->
+>>>>>>> 86f9beee26fca756625136e95ecb18c90cc43baf
                     </div>
                 </div>
                 @auth 
@@ -60,7 +87,11 @@
                         @if($role === 'Admin')
                             <a href="contact.html" class="nav-item nav-link">Tim Pengembang Admin</a>
                         @elseif($role === 'Siswa')
+<<<<<<< HEAD
                             <a href="contact.html" class="nav-item nav-link">Profil Saya</a>
+=======
+                            <a href="/profile" class="nav-item nav-link">Profil Saya</a>
+>>>>>>> 86f9beee26fca756625136e95ecb18c90cc43baf
                         @endif
                     @endif
                 @endauth
@@ -71,6 +102,7 @@
             </form>
         </div>
     </nav>
+<<<<<<< HEAD
     <!-- Navbar End -->
 
     <!-- Leaderboard Start -->
@@ -158,6 +190,48 @@
     <!-- Leaderboard End -->
 
     <!-- Footer Start -->
+=======
+
+    <div class="container mt-5">
+        <h1 class="mb-4">Leaderboard</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Nama</th>
+                    <th>Kelas</th>
+                    <th>Total Nilai</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($leaderboard as $index => $entry)
+                    <tr>
+                        <td>{{ $index + 1 }}</td>
+                        <td>{{ $entry->user->name }}</td>
+                        <td>{{ $entry->user->kelas }}</td>
+                        <td>{{ $entry->total_nilai }}</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+<!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('template/lib/wow/wow.min.js')}}"></script>
+    <script src="{{ asset('template/lib/easing/easing.min.js')}}"></script>
+    <script src="{{ asset('template/lib/waypoints/waypoints.min.js')}}"></script>
+    <script src="{{ asset('template/lib/counterup/counterup.min.js')}}"></script>
+    <script src="{{ asset('template/lib/owlcarousel/owl.carousel.min.js')}}"></script>
+    <script src="{{ asset('template/lib/isotope/isotope.pkgd.min.js')}}"></script>
+    <script src="{{ asset('template/lib/lightbox/js/lightbox.min.js')}}"></script>
+
+    <!-- Template Javascript -->
+    <script src="{{ asset('template/js/main.js')}}"></script>
+</body>
+
+<!-- Footer Start -->
+>>>>>>> 86f9beee26fca756625136e95ecb18c90cc43baf
     <div class="container-fluid bg-dark text-body footer mt-0 pt-0 wow fadeIn" data-wow-delay="0.1s">    
     <div class="container">
             <div class="copyright">
@@ -165,11 +239,22 @@
                     <div class="col-md-12 text-center ">
                         &copy; <a href="#" class="text-center">Kraton Education</a>, All Right Reserved.
                     </div>
+<<<<<<< HEAD
+=======
+                    <!-- <div class="col-md-6 text-center text-md-end">
+                        Designed By <a href="https://htmlcodex.com">HTML Codex</a>
+                        <br>Distributed By: <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
+                    </div> -->
+>>>>>>> 86f9beee26fca756625136e95ecb18c90cc43baf
                 </div>
             </div>
         </div>
     </div>
     <!-- Footer End -->
 
+<<<<<<< HEAD
 </body
 
+=======
+</html>
+>>>>>>> 86f9beee26fca756625136e95ecb18c90cc43baf

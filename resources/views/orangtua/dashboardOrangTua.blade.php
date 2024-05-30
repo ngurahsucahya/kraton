@@ -44,14 +44,14 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="index.html" class="nav-item nav-link">Beranda</a>
-                <a href="about.html" class="nav-item nav-link">Coba Kuis</a>
-                <div class="nav-item dropdown">
+                <!-- <a href="about.html" class="nav-item nav-link">Coba Kuis</a> -->
+                <!-- <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Fitur Lain</a>
                     <div class="dropdown-menu bg-light m-0">
                         <a href="feature.html" class="dropdown-item">Forum</a>
                         <a href="quote.html" class="dropdown-item">Berita Terbaru</a>
                     </div>
-                </div>
+                </div> -->
                 <a href="{{ route('profile.show') }}" class="nav-item nav-link">Profil Saya</a>
             </div>
             <form action="/logout" method="post">
