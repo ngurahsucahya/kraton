@@ -78,7 +78,10 @@
                     <div class="service-item rounded overflow-hidden">
                         <img class="img-fluid" src="{{ asset('template/img/pengetahuanumum.png')}}" alt="">
                         <div class="position-relative p-4 pt-0">
-                        <br></br><h4 class="mb-3">Pengetahuan Umum</h4>
+                            <div class="service-icon">
+                                <i class="fa fa-solar-panel fa-3x"></i>
+                            </div>
+                            <h4 class="mb-3">Pengetahuan Umum</h4>
                             <p>Berisi soal-soal tentang pengetahuan nasional dan dunia.</p>
                             <a class="small fw-medium" href="/pengetahuan-umum">Pilih<i class="fa fa-arrow-right ms-2"></i></a>
                         </div>
@@ -88,7 +91,10 @@
                     <div class="service-item rounded overflow-hidden">
                         <img class="img-fluid" src="{{ asset('template/img/matematika.png')}}" alt="">
                         <div class="position-relative p-4 pt-0">
-                        <br></br><h4 class="mb-3">Matematika</h4>
+                            <div class="service-icon">
+                                <i class="fa fa-wind fa-3x"></i>
+                            </div>
+                            <h4 class="mb-3">Matematika</h4>
                             <p>Berisi soal matematika yang asik dan menyenangkan.</p>
                             <a class="small fw-medium" href="">Pilih<i class="fa fa-arrow-right ms-2"></i></a>
                         </div>
@@ -98,7 +104,10 @@
                     <div class="service-item rounded overflow-hidden">
                         <img class="img-fluid" src="{{ asset('template/img/ipa.png')}}" alt="">
                         <div class="position-relative p-4 pt-0">
-                        <br></br><h4 class="mb-3">Ilmu Pengetahuan Alam</h4>
+                            <div class="service-icon">
+                                <i class="fa fa-lightbulb fa-3x"></i>
+                            </div>
+                            <h4 class="mb-3">Ilmu Pengetahuan Alam</h4>
                             <p>Berisi soal-soal tentang alam dan lingkungan sekitar.</p>
                             <a class="small fw-medium" href="">Pilih<i class="fa fa-arrow-right ms-2"></i></a>
                         </div>
@@ -108,7 +117,10 @@
                     <div class="service-item rounded overflow-hidden">
                         <img class="img-fluid" src="{{ asset('template/img/ips.png')}}" alt="">
                         <div class="position-relative p-4 pt-0">
-                        <br></br><h4 class="mb-3">Ilmu Pengetahuan Sosial</h4>
+                            <div class="service-icon">
+                                <i class="fa fa-solar-panel fa-3x"></i>
+                            </div>
+                            <h4 class="mb-3">Ilmu Pengetahuan Sosial</h4>
                             <p>Berisi soal-soal tentang hubungan sosial manusia.</p>
                             <a class="small fw-medium" href="">Pilih<i class="fa fa-arrow-right ms-2"></i></a>
                         </div>
@@ -118,7 +130,10 @@
                     <div class="service-item rounded overflow-hidden">
                         <img class="img-fluid" src="{{ asset('template/img/bahasainggris.png')}}" alt="">
                         <div class="position-relative p-4 pt-0">
-                        <br></br><h4 class="mb-3">Bahasa Inggris</h4>
+                            <div class="service-icon">
+                                <i class="fa fa-wind fa-3x"></i>
+                            </div>
+                            <h4 class="mb-3">Bahasa Inggris</h4>
                             <p>Belajar Bahasa Inggris yang asik dan menyenangkan.</p>
                             <a class="small fw-medium" href="">Pilih<i class="fa fa-arrow-right ms-2"></i></a>
                         </div>
@@ -128,7 +143,10 @@
                     <div class="service-item rounded overflow-hidden">
                         <img class="img-fluid" src="{{ asset('template/img/bahasaindonesia.png')}}" alt="">
                         <div class="position-relative p-4 pt-0">
-                        <br></br><h4 class="mb-3">Bahasa Indonesia</h4>
+                            <div class="service-icon">
+                                <i class="fa fa-lightbulb fa-3x"></i>
+                            </div>
+                            <h4 class="mb-3">Bahasa Indonesia</h4>
                             <p>Belajar Bahasa Indonesia yang asik dan menyenangkan.</p>
                             <a class="small fw-medium" href="">Pilih<i class="fa fa-arrow-right ms-2"></i></a>
                         </div>
