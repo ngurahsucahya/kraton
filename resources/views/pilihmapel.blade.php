@@ -45,15 +45,15 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="index.html" class="nav-item nav-link active">Beranda</a>
-                <a href="about.html" class="nav-item nav-link">Coba Kuis</a>
+                <a href="/" class="nav-item nav-link active">Beranda</a>
+                <a href="/leaderboard" class="nav-item nav-link">Leaderboard</a>
                 <!-- <a href="service.html" class="nav-item nav-link">Fitur</a> -->
                 <!-- <a href="project.html" class="nav-item nav-link">Project</a> -->
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Fitur Lain</a>
                     <div class="dropdown-menu bg-light m-0">
-                        <a href="feature.html" class="dropdown-item">Forum</a>
-                        <a href="quote.html" class="dropdown-item">Berita Terbaru</a>
+                        <!-- <a href="feature.html" class="dropdown-item">Forum</a> -->
+                        <a href="/blog" class="dropdown-item">Berita Terbaru</a>
                         <!-- <a href="team.html" class="dropdown-item">Our Team</a>
                         <a href="testimonial.html" class="dropdown-item">Testimonial</a>
                         <a href="404.html" class="dropdown-item">404 Page</a> -->
@@ -68,7 +68,7 @@
                         @if($role === 'Admin')
                             <a href="contact.html" class="nav-item nav-link">Tim Pengembang Admin</a>
                         @elseif($role === 'Siswa')
-                            <a href="contact.html" class="nav-item nav-link">Profil Saya</a>
+                            <a href="/profile" class="nav-item nav-link">Profil Saya</a>
                         @endif
                     @endif
                 @endauth
@@ -91,60 +91,61 @@
             <div class="row g-4">
                 <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="service-item rounded overflow-hidden">
-                        <img class="img-fluid" src="{{ asset('template/img/umum.jpg')}}" alt="">
+                        <!-- <img class="img-fluid" src="{{ asset('template/img/img-600x400-1.jpg')}}" alt=""> -->
+                        <img class="img-fluid" src="{{ asset('template/img/pengetahuanumum.png')}}" alt="">
                         <div class="position-relative p-4 pt-0">
-                        <br></br><h4 class="mb-3">Pengetahuan Umum</h4>
-                            <p>Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam.</p>
+                            <h4 class="mb-3">Pengetahuan Umum</h4>
+                            <p>Berisi soal-soal tentang pengetahuan nasional dan dunia.</p>
                             <a class="small fw-medium" href="/pengetahuan-umum">Pilih<i class="fa fa-arrow-right ms-2"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="service-item rounded overflow-hidden">
-                        <img class="img-fluid" src="{{ asset('template/img/matematika.jpg')}}" alt="">
+                        <img class="img-fluid" src="{{ asset('template/img/matematika.png')}}" alt="">
                         <div class="position-relative p-4 pt-0">
-                        <br></br><h4 class="mb-3">Matematika</h4>
-                            <p>Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam.</p>
+                            <h4 class="mb-3">Matematika</h4>
+                            <p>Berisi soal matematika yang asik dan menyenangkan.</p>
                             <a class="small fw-medium" href="">Pilih<i class="fa fa-arrow-right ms-2"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="service-item rounded overflow-hidden">
-                        <img class="img-fluid" src="{{ asset('template/img/ipa.jpg')}}" alt="">
+                        <img class="img-fluid" src="{{ asset('template/img/ipa.png')}}" alt="">
                         <div class="position-relative p-4 pt-0">
-                            <br></br><h4 class="mb-3">Ilmu Pengetahuan Alam</h4>
-                            <p>Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam.</p>
+                            <h4 class="mb-3">Ilmu Pengetahuan Alam</h4>
+                            <p>Berisi soal-soal tentang alam dan lingkungan sekitar.</p>
                             <a class="small fw-medium" href="">Pilih<i class="fa fa-arrow-right ms-2"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="service-item rounded overflow-hidden">
-                        <img class="img-fluid" src="{{ asset('template/img/ips.jpg')}}" alt="">
+                        <img class="img-fluid" src="{{ asset('template/img/ips.png')}}" alt="">
                         <div class="position-relative p-4 pt-0">
-                        <br></br><h4 class="mb-3">Ilmu Pengetahuan Sosial</h4>
-                            <p>Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam.</p>
+                            <h4 class="mb-3">Ilmu Pengetahuan Sosial</h4>
+                            <p>Berisi soal-soal tentang hubungan sosial manusia.</p>
                             <a class="small fw-medium" href="">Pilih<i class="fa fa-arrow-right ms-2"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="service-item rounded overflow-hidden">
-                        <img class="img-fluid" src="{{ asset('template/img/english.jpg')}}" alt="">
+                        <img class="img-fluid" src="{{ asset('template/img/bahasainggris.png')}}" alt="">
                         <div class="position-relative p-4 pt-0">
-                            <br></br><h4 class="mb-3">Bahasa Inggris</h4>
-                            <p>Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam.</p>
+                            <h4 class="mb-3">Bahasa Inggris</h4>
+                            <p>Belajar Bahasa Inggris yang asik dan menyenangkan.</p>
                             <a class="small fw-medium" href="">Pilih<i class="fa fa-arrow-right ms-2"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="service-item rounded overflow-hidden">
-                        <img class="img-fluid" src="{{ asset('template/img/indo.jpg')}}" alt="">
+                        <img class="img-fluid" src="{{ asset('template/img/bahasaindonesia.png')}}" alt="">
                         <div class="position-relative p-4 pt-0">
-                        <br></br><h4 class="mb-3">Bahasa Indonesia</h4>
-                            <p>Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam.</p>
+                            <br></br><h4 class="mb-3">Bahasa Indonesia</h4>
+                            <p>Belajar Bahasa Indonesia yang asik dan menyenangkan.</p>
                             <a class="small fw-medium" href="">Pilih<i class="fa fa-arrow-right ms-2"></i></a>
                         </div>
                     </div>

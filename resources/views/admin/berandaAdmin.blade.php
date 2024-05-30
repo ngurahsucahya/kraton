@@ -45,21 +45,21 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="index.html" class="nav-item nav-link active">Beranda</a>
-                <a href="about.html" class="nav-item nav-link">Coba Kuis</a>
+                <a href="/" class="nav-item nav-link active">Beranda</a>
+                <!-- <a href="about.html" class="nav-item nav-link">Coba Kuis</a> -->
                 <!-- <a href="service.html" class="nav-item nav-link">Fitur</a> -->
                 <!-- <a href="project.html" class="nav-item nav-link">Project</a> -->
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Fitur Lain</a>
                     <div class="dropdown-menu bg-light m-0">
-                        <a href="feature.html" class="dropdown-item">Forum</a>
+                        <!-- <a href="feature.html" class="dropdown-item">Forum</a> -->
                         <a href="quote.html" class="dropdown-item">Berita Terbaru</a>
                         <!-- <a href="team.html" class="dropdown-item">Our Team</a>
                         <a href="testimonial.html" class="dropdown-item">Testimonial</a>
                         <a href="404.html" class="dropdown-item">404 Page</a> -->
                     </div>
                 </div>
-                <a href="contact.html" class="nav-item nav-link">Tim Pengembang</a>
+                <a href="/profile" class="nav-item nav-link">Profil Saya</a>
             </div>
             <form action="/logout" method="post">
             @csrf
@@ -93,7 +93,7 @@
                     <h5 class="card-title">Jumlah Pertanyaan</h5>
                     <h1 class="mb-0" data-toggle="counter-up">{{ $questionCount }}</h1>
                     <a href="/semua-pertanyaanUmum" class="btn btn-primary">Lihat</a>
-                    <a href="/tanbah-pertanyaanUmum" class="btn btn-primary">Tambah</a>
+                    <a href="/admin-tambah-pertanyaanUmum" class="btn btn-primary">Tambah</a>
                 </div>
             </div>
         </div>

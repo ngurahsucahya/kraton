@@ -52,7 +52,7 @@
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Fitur Lain</a>
                     <div class="dropdown-menu bg-light m-0">
-                        <a href="feature.html" class="dropdown-item">Forum</a>
+                        <!-- <a href="feature.html" class="dropdown-item">Forum</a> -->
                         <a href="quote.html" class="dropdown-item">Berita Terbaru</a>
                         <!-- <a href="team.html" class="dropdown-item">Our Team</a>
                         <a href="testimonial.html" class="dropdown-item">Testimonial</a>
@@ -76,60 +76,120 @@
             <div class="row g-4">
                 <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="service-item rounded overflow-hidden">
+<<<<<<< HEAD
                         <img class="img-fluid" src="{{ asset('template/img/umum.jpg')}}" alt="">
                         <div class="position-relative p-4 pt-0">
                         <br></br><h4 class="mb-3">Pengetahuan Umum</h4>
                             <p>Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam.</p>
+=======
+                        <img class="img-fluid" src="{{ asset('template/img/pengetahuanumum.png')}}" alt="">
+                        <div class="position-relative p-4 pt-0">
+                            <div class="service-icon">
+                                <i class="fa fa-solar-panel fa-3x"></i>
+                            </div>
+                            <h4 class="mb-3">Pengetahuan Umum</h4>
+                            <p>Berisi soal-soal tentang pengetahuan nasional dan dunia.</p>
+>>>>>>> 86f9beee26fca756625136e95ecb18c90cc43baf
                             <a class="small fw-medium" href="/pengetahuan-umum">Pilih<i class="fa fa-arrow-right ms-2"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="service-item rounded overflow-hidden">
+<<<<<<< HEAD
                         <img class="img-fluid" src="{{ asset('template/img/matematika.jpg')}}" alt="">
                         <div class="position-relative p-4 pt-0">
                         <br></br><h4 class="mb-3">Matematika</h4>
                             <p>Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam.</p>
+=======
+                        <img class="img-fluid" src="{{ asset('template/img/matematika.png')}}" alt="">
+                        <div class="position-relative p-4 pt-0">
+                            <div class="service-icon">
+                                <i class="fa fa-wind fa-3x"></i>
+                            </div>
+                            <h4 class="mb-3">Matematika</h4>
+                            <p>Berisi soal matematika yang asik dan menyenangkan.</p>
+>>>>>>> 86f9beee26fca756625136e95ecb18c90cc43baf
                             <a class="small fw-medium" href="">Pilih<i class="fa fa-arrow-right ms-2"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="service-item rounded overflow-hidden">
+<<<<<<< HEAD
                         <img class="img-fluid" src="{{ asset('template/img/ipa.jpg')}}" alt="">
                         <div class="position-relative p-4 pt-0">
                             <br></br><h4 class="mb-3">Ilmu Pengetahuan Alam</h4>
                             <p>Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam.</p>
+=======
+                        <img class="img-fluid" src="{{ asset('template/img/ipa.png')}}" alt="">
+                        <div class="position-relative p-4 pt-0">
+                            <div class="service-icon">
+                                <i class="fa fa-lightbulb fa-3x"></i>
+                            </div>
+                            <h4 class="mb-3">Ilmu Pengetahuan Alam</h4>
+                            <p>Berisi soal-soal tentang alam dan lingkungan sekitar.</p>
+>>>>>>> 86f9beee26fca756625136e95ecb18c90cc43baf
                             <a class="small fw-medium" href="">Pilih<i class="fa fa-arrow-right ms-2"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="service-item rounded overflow-hidden">
+<<<<<<< HEAD
                         <img class="img-fluid" src="{{ asset('template/img/ips.jpg')}}" alt="">
                         <div class="position-relative p-4 pt-0">
                         <br></br><h4 class="mb-3">Ilmu Pengetahuan Sosial</h4>
                             <p>Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam.</p>
+=======
+                        <img class="img-fluid" src="{{ asset('template/img/ips.png')}}" alt="">
+                        <div class="position-relative p-4 pt-0">
+                            <div class="service-icon">
+                                <i class="fa fa-solar-panel fa-3x"></i>
+                            </div>
+                            <h4 class="mb-3">Ilmu Pengetahuan Sosial</h4>
+                            <p>Berisi soal-soal tentang hubungan sosial manusia.</p>
+>>>>>>> 86f9beee26fca756625136e95ecb18c90cc43baf
                             <a class="small fw-medium" href="">Pilih<i class="fa fa-arrow-right ms-2"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="service-item rounded overflow-hidden">
+<<<<<<< HEAD
                         <img class="img-fluid" src="{{ asset('template/img/english.jpg')}}" alt="">
                         <div class="position-relative p-4 pt-0">
                             <br></br><h4 class="mb-3">Bahasa Inggris</h4>
                             <p>Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam.</p>
+=======
+                        <img class="img-fluid" src="{{ asset('template/img/bahasainggris.png')}}" alt="">
+                        <div class="position-relative p-4 pt-0">
+                            <div class="service-icon">
+                                <i class="fa fa-wind fa-3x"></i>
+                            </div>
+                            <h4 class="mb-3">Bahasa Inggris</h4>
+                            <p>Belajar Bahasa Inggris yang asik dan menyenangkan.</p>
+>>>>>>> 86f9beee26fca756625136e95ecb18c90cc43baf
                             <a class="small fw-medium" href="">Pilih<i class="fa fa-arrow-right ms-2"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="service-item rounded overflow-hidden">
+<<<<<<< HEAD
                         <img class="img-fluid" src="{{ asset('template/img/indo.jpg')}}" alt="">
                         <div class="position-relative p-4 pt-0">
                         <br></br><h4 class="mb-3">Bahasa Indonesia</h4>
                             <p>Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam.</p>
+=======
+                        <img class="img-fluid" src="{{ asset('template/img/bahasaindonesia.png')}}" alt="">
+                        <div class="position-relative p-4 pt-0">
+                            <div class="service-icon">
+                                <i class="fa fa-lightbulb fa-3x"></i>
+                            </div>
+                            <h4 class="mb-3">Bahasa Indonesia</h4>
+                            <p>Belajar Bahasa Indonesia yang asik dan menyenangkan.</p>
+>>>>>>> 86f9beee26fca756625136e95ecb18c90cc43baf
                             <a class="small fw-medium" href="">Pilih<i class="fa fa-arrow-right ms-2"></i></a>
                         </div>
                     </div>
