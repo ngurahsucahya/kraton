@@ -44,7 +44,18 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="/" class="nav-item nav-link">Beranda</a>
-                <a href="/leaderboard" class="nav-item nav-link">Leaderboard</a>
+                @auth 
+                    @if(Auth::check())
+                        @php
+                            $role = Auth::user()->role;
+                        @endphp
+
+                        @if(in_array($role, ['Orang Tua', 'Admin']))
+                        @elseif($role === 'Siswa')
+                        <a href="/leaderboard" class="nav-item nav-link">Leaderboard</a>                            
+                        @endif
+                    @endif
+                @endauth
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Fitur Lain</a>
                     <div class="dropdown-menu bg-light m-0">
@@ -109,11 +120,22 @@
             </div>
         </div>
     </div>
-    <div class="row justify-content-center mt-4 mb-4">
-        <div class="col-md-8">
-            <a href="{{ route('riwayat.pengetahuan', ['id_user' => Auth::user()->id]) }}" class="btn btn-primary">Lihat Riwayat Nilai</a>
-        </div>
-    </div>
+    @auth
+        @php
+            $role = Auth::user()->role;
+        @endphp
+        @if($role === 'Siswa')
+            <div class="row justify-content-center mt-4 mb-4">
+                <div class="col-md-8">
+                    <a href="{{ route('riwayat.pengetahuan', ['id_user' => Auth::user()->id]) }}" class="btn btn-primary">Lihat Riwayat Nilai</a>
+                </div>
+            </div>
+        @elseif(in_array($role, ['Orang Tua', 'Admin']))
+            <div class="row justify-content-center mt-4 mb-4">
+            </div>
+        @endif
+    @endauth
+
 </div>
 
     <!-- Content End -->
